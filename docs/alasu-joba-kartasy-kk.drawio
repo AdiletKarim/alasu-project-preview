@@ -1,0 +1,1224 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" compressed="false" type="device">
+  <diagram id="alasu-kk-map" name="Alasu жобасының картасы">
+    <mxGraphModel dx="1280" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="2320" pageHeight="7928" background="#F6F8FC">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="branch-01-group-1-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#bdcfe6;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Бір тапсырыстың толық жолы&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Дүкенге барудан бастап тауарды жеткізуге, ақшаны салыстыруға және 1С-ке енгізуге дейінгі жұмысты байланыстырады.&lt;/span&gt;">
+          <mxGeometry x="1430" y="70" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-01-group-1-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#bdcfe6;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Бірізді деректер&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Тапсырыс, қойма, рейс, төлем және құжат бір жүйеде тіркеледі. Әр қызметкер өзіне тиесілі жұмысты көреді.&lt;/span&gt;">
+          <mxGeometry x="1430" y="176" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-01-group-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#e2eaf4;strokeColor=#9cb7d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Жобаның мақсаты&lt;/span&gt;">
+          <mxGeometry x="912" y="140" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-01-group-2-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#bdcfe6;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;1 веб-сайт&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Компьютерден де, телефон браузерінен де ашылады. Вебте 8 мәзір бөлімі және 59 кіру нүктесі бар.&lt;/span&gt;">
+          <mxGeometry x="1430" y="298" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-01-group-2-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#bdcfe6;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;1 мобильді қосымша&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Далалық жұмыс, жеткізу және қойма режимдері бар. Телефон режимі 8 лауазымға бапталған. Қосымша сынақ кезеңінде.&lt;/span&gt;">
+          <mxGeometry x="1430" y="404" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-01-group-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#e2eaf4;strokeColor=#9cb7d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Екі жұмыс ортасы&lt;/span&gt;">
+          <mxGeometry x="912" y="368" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-01-group-3-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#bdcfe6;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;1С бухгалтериясы&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Бухгалтерлік есеп бөлек 1С жүйесінде жүргізіледі. Alasu құжаттар пакетін дайындайды, уәкілетті қызметкер оны 1С-ке қолмен жүктейді.&lt;/span&gt;">
+          <mxGeometry x="1430" y="526" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-01-group-3" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#e2eaf4;strokeColor=#9cb7d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Жүйенің шекарасы&lt;/span&gt;">
+          <mxGeometry x="912" y="543" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-01" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#FFFFFF;fillColor=#316AB0;strokeColor=#316AB0;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:12px;color:#FFFFFF;font-weight:600&quot;&gt;01&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:23px;color:#FFFFFF;font-weight:700&quot;&gt;Жоба және платформалар&lt;/span&gt;">
+          <mxGeometry x="466" y="297" width="324" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-1-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cfc4e2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Құрылтайшы және бас директор&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Компания бойынша қорытынды көрсеткіштерді, шешім күтетін мәселелерді және жеткізу барысын қарайды.&lt;/span&gt;">
+          <mxGeometry x="1430" y="698" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-1-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cfc4e2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Өңірлік және коммерциялық директор&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Өңір, сату және коммерциялық көрсеткіштерді берілген рұқсаттар аясында бақылайды.&lt;/span&gt;">
+          <mxGeometry x="1430" y="804" width="790" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#eae5f2;strokeColor=#b7a7d4;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Басшылық · 4&lt;/span&gt;">
+          <mxGeometry x="912" y="760" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-2-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cfc4e2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Сату тобының басшылары&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Сату жетекшісі, супервайзер және аумақтық менеджер команданы басқарады.&lt;/span&gt;">
+          <mxGeometry x="1430" y="911" width="790" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-2-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cfc4e2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Тапсырыс пен талдау&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Сауда өкілі, тапсырыс операторы және сату талдаушысы өз міндетіне сай тапсырыспен немесе есеппен жұмыс істейді.&lt;/span&gt;">
+          <mxGeometry x="1430" y="1002" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-2-leaf-3" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cfc4e2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Дүкендегі тауар жаймасы&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Мерчендайзер және тұрақты мерчендайзер сөрені тексеріп, фото мен тексеру парағын тіркейді.&lt;/span&gt;">
+          <mxGeometry x="1430" y="1108" width="790" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#eae5f2;strokeColor=#b7a7d4;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Сату · 8&lt;/span&gt;">
+          <mxGeometry x="912" y="1019" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-3-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cfc4e2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Басқару және талдау&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Қаржы директоры мен қаржы талдаушысы касса, берешек, шығыс және есеп көрсеткіштерін қарайды.&lt;/span&gt;">
+          <mxGeometry x="1430" y="1215" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-3-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cfc4e2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Бухгалтерия және касса&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Бас бухгалтер, бухгалтер көмекшісі және кассир төлемді, кассалық құжатты немесе 1С пакетін өз рұқсатына сай өңдейді.&lt;/span&gt;">
+          <mxGeometry x="1430" y="1321" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-3" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#eae5f2;strokeColor=#b7a7d4;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Қаржы · 5&lt;/span&gt;">
+          <mxGeometry x="912" y="1285" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-4-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cfc4e2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Қойма операциялары&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Қоймашы, қойма меңгерушісі және қойма логисі жинақтау, қабылдау, қалдық пен түгендеуді рұқсатына сай жүргізеді.&lt;/span&gt;">
+          <mxGeometry x="1430" y="1443" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-4-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cfc4e2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Жинақтау және тиеу&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Тауар жинаушы мен жүк тиегіш жүргізушісінің қойма деректеріне қолжетімділігі міндетіне қарай беріледі.&lt;/span&gt;">
+          <mxGeometry x="1430" y="1549" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-4" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#eae5f2;strokeColor=#b7a7d4;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Қойма · 5&lt;/span&gt;">
+          <mxGeometry x="912" y="1513" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-5-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cfc4e2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Маршрут пен көлік&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Жеткізу логисі рейс құрады. Экспедитор мен аға экспедитор өз рейсін орындайды. Жүк көлігі жүргізушісінің рөлі бөлек.&lt;/span&gt;">
+          <mxGeometry x="1430" y="1671" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-5" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#eae5f2;strokeColor=#b7a7d4;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Жеткізу · 4&lt;/span&gt;">
+          <mxGeometry x="912" y="1688" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-6-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cfc4e2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Әкімшілік пен мамандар&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;HR әкімшісі, жүйе әкімшісі, тоңазытқыш жабдықтары бойынша логист, заңгер, қауіпсіздік қызметкері және маркетинг маманы.&lt;/span&gt;">
+          <mxGeometry x="1430" y="1793" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-6" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#eae5f2;strokeColor=#b7a7d4;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Қолдау · 6&lt;/span&gt;">
+          <mxGeometry x="912" y="1810" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-7-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cfc4e2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;32 рөл · 8 жұмыс беті&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;12 рөлге бастапқы бет арнайы бапталған. Қалған 20 рөл жүйеге кіргенде өзі аша алатын алғашқы бетке өтеді.&lt;/span&gt;">
+          <mxGeometry x="1430" y="1915" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02-group-7" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#eae5f2;strokeColor=#b7a7d4;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Жұмыс бетіне кіру&lt;/span&gt;">
+          <mxGeometry x="912" y="1932" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-02" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#FFFFFF;fillColor=#6948A5;strokeColor=#6948A5;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:12px;color:#FFFFFF;font-weight:600&quot;&gt;02&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:23px;color:#FFFFFF;font-weight:700&quot;&gt;Лауазымдар мен рұқсаттар&lt;/span&gt;">
+          <mxGeometry x="466" y="1306" width="324" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-03-group-1-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#bed1dc;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Басты бет&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Құрылтайшының бақылау тақтасы, «Менің күнім» және тапсырмалар.&lt;/span&gt;">
+          <mxGeometry x="1430" y="2087" width="790" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-03-group-1-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#bed1dc;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Сату&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Тапсырыстар, жоспар мен нәтиже, клиенттер базасы, сауда өкілдерінің сапар картасы және акциялар.&lt;/span&gt;">
+          <mxGeometry x="1430" y="2178" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-03-group-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#e2ebf0;strokeColor=#9dbaca;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Күнделікті басқару&lt;/span&gt;">
+          <mxGeometry x="912" y="2150" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-03-group-2-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#bed1dc;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Қойма&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Қалдық, кіріс, түгендеу, ауыстыру, есептен шығару және жеткізушіге қайтару.&lt;/span&gt;">
+          <mxGeometry x="1430" y="2300" width="790" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-03-group-2-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#bed1dc;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Логистика&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Жеткізілетін тапсырыстар, рейстер, көлік, экспедиторлардың картадағы орны және жабдық.&lt;/span&gt;">
+          <mxGeometry x="1430" y="2391" width="790" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-03-group-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#e2ebf0;strokeColor=#9dbaca;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Тауар және жеткізу&lt;/span&gt;">
+          <mxGeometry x="912" y="2355" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-03-group-3-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#bed1dc;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Қаржы&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Касса, банк, дебиторлық берешек, шығыс, пайда мен залал есебі және 1С құжаттар пакеті.&lt;/span&gt;">
+          <mxGeometry x="1430" y="2498" width="790" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-03-group-3-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#bed1dc;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Қызметкерлер&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Қызметкерлер тізімі, жұмыс күні, ауытқулар, KPI және сыйақы.&lt;/span&gt;">
+          <mxGeometry x="1430" y="2589" width="790" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-03-group-3" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#e2ebf0;strokeColor=#9dbaca;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Ақша және қызметкерлер&lt;/span&gt;">
+          <mxGeometry x="912" y="2553" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-03-group-4-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#bed1dc;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Есептер&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Бөлімдер мен тауарлар бойынша есеп, дерек экспорты және жоспарлы тарату.&lt;/span&gt;">
+          <mxGeometry x="1430" y="2696" width="790" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-03-group-4-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#bed1dc;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Баптаулар&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Пайдаланушылар, рөлдер, дерек алмасу, бақылау ережелері және әрекет журналы.&lt;/span&gt;">
+          <mxGeometry x="1430" y="2787" width="790" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-03-group-4" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#e2ebf0;strokeColor=#9dbaca;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Есеп және баптау&lt;/span&gt;">
+          <mxGeometry x="912" y="2751" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-03" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#FFFFFF;fillColor=#336F91;strokeColor=#336F91;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:12px;color:#FFFFFF;font-weight:600&quot;&gt;03&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:23px;color:#FFFFFF;font-weight:700&quot;&gt;Веб-сайттың бөлімдері&lt;/span&gt;">
+          <mxGeometry x="466" y="2428" width="324" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-04-group-1-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#b2d7d3;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Дүкенге бару&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Сауда өкілі мен мерчендайзерлер маршрутты қарап, барғанын белгілейді, фото түсіреді және тексеру парағын толтырады.&lt;/span&gt;">
+          <mxGeometry x="1430" y="2944" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-04-group-1-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#b2d7d3;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Сауда өкілінің жұмысы&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Жаңа сауда нүктесін тіркейді, тапсырыс жасайды, оның күйін және клиент берешегін қарайды.&lt;/span&gt;">
+          <mxGeometry x="1430" y="3050" width="790" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-04-group-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#ddedec;strokeColor=#8bc3be;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Далалық жұмыс · 3 рөл&lt;/span&gt;">
+          <mxGeometry x="912" y="3006" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-04-group-2-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#b2d7d3;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Рейс және дүкендер&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Экспедитор мен аға экспедитор тауарды қабылдап, дүкенге дейін бағыт алады және жеткізу нәтижесі мен төлемді тіркейді.&lt;/span&gt;">
+          <mxGeometry x="1430" y="3157" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-04-group-2-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#b2d7d3;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Құжат пен қайтарым&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Жүкқұжатты көрсетеді, қол қойылған құжатты суретке түсіреді, жеткізілмеген тауарды тіркейді және түзету сұрай алады.&lt;/span&gt;">
+          <mxGeometry x="1430" y="3263" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-04-group-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#ddedec;strokeColor=#8bc3be;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Жеткізу · 2 рөл&lt;/span&gt;">
+          <mxGeometry x="912" y="3227" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-04-group-3-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#b2d7d3;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Тауарды жинақтау&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Қоймашы, қойма меңгерушісі және қойма логисі өз рұқсатына сай тиеу тізімін ашып, тауарды жинап береді.&lt;/span&gt;">
+          <mxGeometry x="1430" y="3385" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-04-group-3-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#b2d7d3;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Қабылдау және қалдық&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Келген және рейстен қайтқан тауарды қабылдайды, қалдық пен партияны қарайды. Түгендеу рұқсат болғанда ашылады.&lt;/span&gt;">
+          <mxGeometry x="1430" y="3491" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-04-group-3" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#ddedec;strokeColor=#8bc3be;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Қойма · 3 рөл&lt;/span&gt;">
+          <mxGeometry x="912" y="3455" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-04-group-4-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#b2d7d3;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Аккаунт пен тіл&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Құрылғыны белсендіру, профиль, құпиясөз, қазақша және орысша интерфейс, тапсырмалар мен қолданба ішіндегі хабарламалар.&lt;/span&gt;">
+          <mxGeometry x="1430" y="3613" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-04-group-4-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#b2d7d3;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Байланыс үзілгенде&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Офлайн қолдауы бар әрекеттер телефонда сақталады. Байланыс келгенде жіберіледі, ал қабылданбаған жазбаның себебі көрсетіледі.&lt;/span&gt;">
+          <mxGeometry x="1430" y="3719" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-04-group-4" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#ddedec;strokeColor=#8bc3be;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Барлық режимге ортақ&lt;/span&gt;">
+          <mxGeometry x="912" y="3683" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-04" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#FFFFFF;fillColor=#0D8177;strokeColor=#0D8177;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:12px;color:#FFFFFF;font-weight:600&quot;&gt;04&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:23px;color:#FFFFFF;font-weight:700&quot;&gt;Мобильді қосымша&lt;/span&gt;">
+          <mxGeometry x="466" y="3330" width="324" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-1-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e3c4d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Кіруді тіркеу&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Сауда өкілі жұмыс күнін бастайды, сауда нүктесінде тұрғанын GPS арқылы растайды, фото мен тексеру парағын сақтайды.&lt;/span&gt;">
+          <mxGeometry x="1430" y="3891" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-1-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e3c4d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Жабдықты тексеру&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Тоңазытқыш немесе витрина кодын сканерлеп, оның осы нүктеде тіркелгенін тексереді. Фото сол сапардағы күйін көрсетеді, орнату тарихы бөлек сақталады.&lt;/span&gt;">
+          <mxGeometry x="1430" y="3997" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#f3e5ee;strokeColor=#d6a7c6;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;1 · Дүкенге бару&lt;/span&gt;">
+          <mxGeometry x="912" y="3961" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-2-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e3c4d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Клиентті таңдау&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Бар клиентті ашу немесе жаңа нүктенің атауын, мекенжайын, орнын және байланысын енгізіп, қайталануын тексеру.&lt;/span&gt;">
+          <mxGeometry x="1430" y="4119" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-2-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e3c4d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Жүйелік тексеріс&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Баға, берешек шегі және шектеулер тексеріледі. Шарттан өткен тапсырыс бірден «Жеткізуге дайын тапсырыстар» тізіміне түседі.&lt;/span&gt;">
+          <mxGeometry x="1430" y="4225" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#f3e5ee;strokeColor=#d6a7c6;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;2 · Тапсырыс&lt;/span&gt;">
+          <mxGeometry x="912" y="4189" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-3-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e3c4d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Логист · веб&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Тапсырыстарды іріктейді, көлік пен экспедиторды бекітеді, аялдамалар ретін қояды. Жүйе тиеу тізімін жасайды.&lt;/span&gt;">
+          <mxGeometry x="1430" y="4347" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-3" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#f3e5ee;strokeColor=#d6a7c6;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;3 · Рейс құру&lt;/span&gt;">
+          <mxGeometry x="912" y="4364" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-4-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e3c4d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Қоймашы · қосымша&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Тиеу тізімімен тауарды жинайды. Нақты санын және жетіспеу себебін енгізеді, «Берілді» деп белгілейді.&lt;/span&gt;">
+          <mxGeometry x="1430" y="4469" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-4-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e3c4d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Экспедитор · қосымша&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Берілген тауарды қайта санайды. Қабылдағаннан кейін қойма қалдығы азаяды және жүкқұжат нөмірі беріледі.&lt;/span&gt;">
+          <mxGeometry x="1430" y="4575" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-4" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#f3e5ee;strokeColor=#d6a7c6;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;4 · Тауарды беру&lt;/span&gt;">
+          <mxGeometry x="912" y="4539" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-5-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e3c4d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Жеткізу нәтижесі&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Толық не ішінара жеткізу, клиенттің бас тартуы немесе жеткізе алмау тіркеледі. Қажет болса қол қойылған жүкқұжат суретке түсіріледі.&lt;/span&gt;">
+          <mxGeometry x="1430" y="4697" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-5-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e3c4d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Төлемді тіркеу&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Қолма-қол, аударым және Kaspi QR сомалары бөлек жазылады. Аударым не QR үшін чек фотосын қосуға болады.&lt;/span&gt;">
+          <mxGeometry x="1430" y="4803" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-5" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#f3e5ee;strokeColor=#d6a7c6;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;5 · Дүкенге жеткізу&lt;/span&gt;">
+          <mxGeometry x="912" y="4767" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-6-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e3c4d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Касса мен қойма&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Кассир нақты қолма-қол ақшаны қабылдайды. Қоймашы қайтқан тауарды санап, жарамдысы мен ақаулысын бөлек тіркейді.&lt;/span&gt;">
+          <mxGeometry x="1430" y="4925" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-6" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#f3e5ee;strokeColor=#d6a7c6;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;6 · Ақша мен қайтарымды өткізу&lt;/span&gt;">
+          <mxGeometry x="912" y="4942" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-7-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e3c4d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Бухгалтер · веб және 1С&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Дайын құжаттар пакетін экспорттайды. Уәкілетті қызметкер оны 1С-ке жүктейді, нәтижені және 1С құжат нөмірін Alasu-да белгілейді.&lt;/span&gt;">
+          <mxGeometry x="1430" y="5047" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05-group-7" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#f3e5ee;strokeColor=#d6a7c6;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;7 · 1С-ке енгізу&lt;/span&gt;">
+          <mxGeometry x="912" y="5064" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-05" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#FFFFFF;fillColor=#A94788;strokeColor=#A94788;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:12px;color:#FFFFFF;font-weight:600&quot;&gt;05&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:23px;color:#FFFFFF;font-weight:700&quot;&gt;Тапсырыстан 1С-ке дейін&lt;/span&gt;">
+          <mxGeometry x="466" y="4468" width="324" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-06-group-1-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e4c9b7;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Қолма-қол ақша&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Экспедитор өткізген соманы кассир растайды. Кіріс кассалық ордері жасалады, оны тиісті рұқсаты бар екінші адам бекітеді.&lt;/span&gt;">
+          <mxGeometry x="1430" y="5219" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-06-group-1-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e4c9b7;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Аударым және Kaspi QR&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Бухгалтер төлемді банк немесе Kaspi көшірмесімен салыстырады. 1С-тегі ақшалай кіріс банк көшірмесі бойынша тіркеледі.&lt;/span&gt;">
+          <mxGeometry x="1430" y="5325" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-06-group-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#f3e7e0;strokeColor=#d7ae93;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Төлемді салыстыру&lt;/span&gt;">
+          <mxGeometry x="912" y="5289" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-06-group-2-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e4c9b7;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Ортақ тексеру тізбегі&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Тапсырыс → рейс → жүкқұжат → төлем немесе қайтарым → 1С құжаты. Тауар саны мен соманы осы нөмірлер арқылы салыстырады.&lt;/span&gt;">
+          <mxGeometry x="1430" y="5447" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-06-group-2-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e4c9b7;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Сәйкессіздік және түзету&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Экспедитор қате нәтижені түзетуді сұрай алады. Рұқсаты бар басқа қызметкер түзетуді тексереді.&lt;/span&gt;">
+          <mxGeometry x="1430" y="5553" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-06-group-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#f3e7e0;strokeColor=#d7ae93;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Құжаттардың байланысы&lt;/span&gt;">
+          <mxGeometry x="912" y="5517" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-06-group-3-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e4c9b7;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Кіріс деректері&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;1С-тен алынған деректер тауар қалдығын, өткізуді, төлемді және берешекті салыстыруға пайдаланылады.&lt;/span&gt;">
+          <mxGeometry x="1430" y="5675" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-06-group-3-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e4c9b7;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Шығыс құжаттары&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Пакетке жарамды құжаттар кіреді. Жүктелмеген немесе түзетуді қажет ететін құжаттың себебі көрсетіледі.&lt;/span&gt;">
+          <mxGeometry x="1430" y="5781" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-06-group-3-leaf-3" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#e4c9b7;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Бөлек сақталатын дәлел&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Қабылдау, қол қойылған жүкқұжат және төлем чегінің суретін Alasu-дан қарауға болады. 1С пакеті құжат деректерін тасымалдайды.&lt;/span&gt;">
+          <mxGeometry x="1430" y="5887" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-06-group-3" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#f3e7e0;strokeColor=#d7ae93;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;1С-пен дерек алмасу&lt;/span&gt;">
+          <mxGeometry x="912" y="5798" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-06" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#FFFFFF;fillColor=#AC561E;strokeColor=#AC561E;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:12px;color:#FFFFFF;font-weight:600&quot;&gt;06&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:23px;color:#FFFFFF;font-weight:700&quot;&gt;Ақша, құжаттар және 1С&lt;/span&gt;">
+          <mxGeometry x="466" y="5552" width="324" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-07-group-1-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#c1d1d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Веб-интерфейс&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;React қолданбасы. Бет, мәзір және әрекеттер ағымдағы аккаунттың рұқсатына қарай ашылады.&lt;/span&gt;">
+          <mxGeometry x="1430" y="6059" width="790" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-07-group-1-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#c1d1d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Мобильді интерфейс&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;React Native және Expo. SQLite кэші мен жіберу кезегі офлайн жұмысқа көмектеседі.&lt;/span&gt;">
+          <mxGeometry x="1430" y="6150" width="790" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-07-group-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#e4ebee;strokeColor=#a1b9c6;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Клиенттік бөлік&lt;/span&gt;">
+          <mxGeometry x="912" y="6114" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-07-group-2-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#c1d1d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;API және бизнес логика&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;FastAPI тапсырыс, қойма, жеткізу, төлем және 1С алмасу модульдерін байланыстырады.&lt;/span&gt;">
+          <mxGeometry x="1430" y="6257" width="790" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-07-group-2-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#c1d1d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Деректер мен файлдар&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;PostgreSQL және PostGIS негізгі деректер мен координаттарды сақтайды. Фотолар файл қоймасында сақталады.&lt;/span&gt;">
+          <mxGeometry x="1430" y="6348" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-07-group-2-leaf-3" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#c1d1d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Фондық жұмыс&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Celery және Redis жоспарлы есеп, бақылау және фондық тапсырмаларды жүргізеді.&lt;/span&gt;">
+          <mxGeometry x="1430" y="6454" width="790" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-07-group-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#e4ebee;strokeColor=#a1b9c6;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Сервер және сақтау&lt;/span&gt;">
+          <mxGeometry x="912" y="6365" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-07-group-3-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#c1d1d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Рөл мен әрекет&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Бір рөл мәзірді көруі, екіншісі сол бетте деректі өңдеуі мүмкін. Мысалы, бас директор жеткізу тізімін көреді, логист рейс құра алады.&lt;/span&gt;">
+          <mxGeometry x="1430" y="6561" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-07-group-3-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#c1d1d9;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Дерек ауқымы мен журнал&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Сервер рұқсат пен дерек ауқымын тексереді. Маңызды әрекет журналға жазылады, ал кейбір операцияны екінші адам растайды.&lt;/span&gt;">
+          <mxGeometry x="1430" y="6667" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-07-group-3" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#e4ebee;strokeColor=#a1b9c6;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Рұқсат және бақылау&lt;/span&gt;">
+          <mxGeometry x="912" y="6631" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-07" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#FFFFFF;fillColor=#3C6E88;strokeColor=#3C6E88;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:12px;color:#FFFFFF;font-weight:600&quot;&gt;07&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:23px;color:#FFFFFF;font-weight:700&quot;&gt;Техникалық архитектура&lt;/span&gt;">
+          <mxGeometry x="466" y="6362" width="324" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-08-group-1-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cad3c2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Сынақ кезеңі&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Қосымша барлық қызметкердің телефонына таратылған жоқ. Қоймадан 1С пакетін жасауға дейінгі негізгі сценарий автоматты түрде тексерілген.&lt;/span&gt;">
+          <mxGeometry x="1430" y="6839" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-08-group-1-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cad3c2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Тексеру нәтижесі&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Іріктелген 349 автоматты тест сәтті өтті: серверде 172, вебте 67 және қосымшада 110. Нақты телефон және сынақ 1С базасына импорт бөлек тексеріледі.&lt;/span&gt;">
+          <mxGeometry x="1430" y="6945" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-08-group-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#e8ece4;strokeColor=#afbda4;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Қазіргі жағдай&lt;/span&gt;">
+          <mxGeometry x="912" y="6909" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-08-group-2-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cad3c2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Жауапты: __________&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Бір тапсырысты телефоннан өткізу. GPS, фото, үзіліп-қайта қосылған байланыс және деректің серверге жетуін бақылау.&lt;/span&gt;">
+          <mxGeometry x="1430" y="7067" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-08-group-2-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cad3c2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Құжатпен растау&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Тапсырыс, тиеу тізімі, жүкқұжат және 1С құжатының нөмірлерін жазып, тауар саны мен төлемді салыстыру.&lt;/span&gt;">
+          <mxGeometry x="1430" y="7173" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-08-group-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#e8ece4;strokeColor=#afbda4;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;1-адам · процесті сынау&lt;/span&gt;">
+          <mxGeometry x="912" y="7137" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-08-group-3-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cad3c2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Жауапты: __________&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Ортақ телефондағы тапсырыс кэшін қызметкер бойынша оқшаулау. Аккаунт өзгергенде бұрынғы адамның тапсырыстары көрінбеуі керек.&lt;/span&gt;">
+          <mxGeometry x="1430" y="7295" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-08-group-3-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cad3c2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;1С экспорты&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Төлем түсіндірмесінде тиынға дейінгі дәлдікті сақтау. Мысалы, 1 234,51 ₸ сомасы бүтін санға айналмауы керек.&lt;/span&gt;">
+          <mxGeometry x="1430" y="7401" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-08-group-3-leaf-3" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cad3c2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Windows сынақ ортасы&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Дерекқорды жаңарту конфигурациясының кодталуын түзетіп, негізгі тармақтағы миграцияны қайта тексеру.&lt;/span&gt;">
+          <mxGeometry x="1430" y="7507" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-08-group-3" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#e8ece4;strokeColor=#afbda4;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;2-адам · ақауды түзету&lt;/span&gt;">
+          <mxGeometry x="912" y="7418" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-08-group-4-leaf-1" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cad3c2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Жұмыс жазбасы&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Әр тармақта жауапты адамды, күйді және дәлелді белгілеу: «Кезекте», «Жұмыста», «Тексерілді».&lt;/span&gt;">
+          <mxGeometry x="1430" y="7629" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-08-group-4-leaf-2" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#FFFFFF;strokeColor=#cad3c2;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:18px;color:#172B45;font-weight:700&quot;&gt;Өту шарты&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#4C5F79&quot;&gt;Тауар саны сәйкес, ақша салыстырылған, құжат нөмірлері табылған және сынақ 1С базасында импорт нәтижесі жазылған.&lt;/span&gt;">
+          <mxGeometry x="1430" y="7735" width="790" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-08-group-4" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#172B45;fillColor=#e8ece4;strokeColor=#afbda4;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:19px;color:#172B45;font-weight:700&quot;&gt;Бірге қабылдау&lt;/span&gt;">
+          <mxGeometry x="912" y="7699" width="383" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="branch-08" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#FFFFFF;fillColor=#587641;strokeColor=#587641;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:12px;color:#FFFFFF;font-weight:600&quot;&gt;08&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:23px;color:#FFFFFF;font-weight:700&quot;&gt;Сынақ және бірлескен жұмыс&lt;/span&gt;">
+          <mxGeometry x="466" y="7286" width="324" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="root" parent="1" vertex="1" style="rounded=1;arcSize=17;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=16;fontFamily=Segoe UI;fontColor=#FFFFFF;fillColor=#203758;strokeColor=#203758;strokeWidth=1.3;" value="&lt;span style=&quot;font-size:12px;color:#FFFFFF;font-weight:600&quot;&gt;ЖОБАНЫҢ ТОЛЫҚ КАРТАСЫ&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:40px;color:#FFFFFF;font-weight:700&quot;&gt;Alasu&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:16px;color:#FFFFFF&quot;&gt;Веб-сайт · мобильді қосымша · 1С&lt;/span&gt;">
+          <mxGeometry x="64" y="3899" width="310" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-1" parent="1" edge="1" source="branch-01-group-1" target="branch-01-group-1-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#316AB0;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="169" />
+              <mxPoint x="1367" y="116" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-2" parent="1" edge="1" source="branch-01-group-1" target="branch-01-group-1-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#316AB0;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="169" />
+              <mxPoint x="1367" y="222" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-3" parent="1" edge="1" source="branch-01" target="branch-01-group-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#316AB0;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="344" />
+              <mxPoint x="855" y="169" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-4" parent="1" edge="1" source="branch-01-group-2" target="branch-01-group-2-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#316AB0;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="397" />
+              <mxPoint x="1367" y="344" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-5" parent="1" edge="1" source="branch-01-group-2" target="branch-01-group-2-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#316AB0;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="397" />
+              <mxPoint x="1367" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-6" parent="1" edge="1" source="branch-01" target="branch-01-group-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#316AB0;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="344" />
+              <mxPoint x="855" y="397" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-7" parent="1" edge="1" source="branch-01-group-3" target="branch-01-group-3-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#316AB0;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="572" />
+              <mxPoint x="1367" y="572" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-8" parent="1" edge="1" source="branch-01" target="branch-01-group-3" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#316AB0;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="344" />
+              <mxPoint x="855" y="572" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-9" parent="1" edge="1" source="root" target="branch-01" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=3.2;strokeColor=#316AB0;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="423" y="3976" />
+              <mxPoint x="423" y="344" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-10" parent="1" edge="1" source="branch-02-group-1" target="branch-02-group-1-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="789" />
+              <mxPoint x="1367" y="744" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-11" parent="1" edge="1" source="branch-02-group-1" target="branch-02-group-1-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="789" />
+              <mxPoint x="1367" y="842" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-12" parent="1" edge="1" source="branch-02" target="branch-02-group-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="1353" />
+              <mxPoint x="855" y="789" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-13" parent="1" edge="1" source="branch-02-group-2" target="branch-02-group-2-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="1048" />
+              <mxPoint x="1367" y="950" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-14" parent="1" edge="1" source="branch-02-group-2" target="branch-02-group-2-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="1048" />
+              <mxPoint x="1367" y="1048" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-15" parent="1" edge="1" source="branch-02-group-2" target="branch-02-group-2-leaf-3" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="1048" />
+              <mxPoint x="1367" y="1146" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-16" parent="1" edge="1" source="branch-02" target="branch-02-group-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="1353" />
+              <mxPoint x="855" y="1048" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-17" parent="1" edge="1" source="branch-02-group-3" target="branch-02-group-3-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="1314" />
+              <mxPoint x="1367" y="1261" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-18" parent="1" edge="1" source="branch-02-group-3" target="branch-02-group-3-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="1314" />
+              <mxPoint x="1367" y="1367" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-19" parent="1" edge="1" source="branch-02" target="branch-02-group-3" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="1353" />
+              <mxPoint x="855" y="1314" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-20" parent="1" edge="1" source="branch-02-group-4" target="branch-02-group-4-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="1542" />
+              <mxPoint x="1367" y="1489" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-21" parent="1" edge="1" source="branch-02-group-4" target="branch-02-group-4-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="1542" />
+              <mxPoint x="1367" y="1595" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-22" parent="1" edge="1" source="branch-02" target="branch-02-group-4" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="1353" />
+              <mxPoint x="855" y="1542" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-23" parent="1" edge="1" source="branch-02-group-5" target="branch-02-group-5-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="1717" />
+              <mxPoint x="1367" y="1717" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-24" parent="1" edge="1" source="branch-02" target="branch-02-group-5" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="1353" />
+              <mxPoint x="855" y="1717" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-25" parent="1" edge="1" source="branch-02-group-6" target="branch-02-group-6-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="1839" />
+              <mxPoint x="1367" y="1839" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-26" parent="1" edge="1" source="branch-02" target="branch-02-group-6" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="1353" />
+              <mxPoint x="855" y="1839" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-27" parent="1" edge="1" source="branch-02-group-7" target="branch-02-group-7-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="1961" />
+              <mxPoint x="1367" y="1961" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-28" parent="1" edge="1" source="branch-02" target="branch-02-group-7" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="1353" />
+              <mxPoint x="855" y="1961" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-29" parent="1" edge="1" source="root" target="branch-02" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=3.2;strokeColor=#6948A5;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="423" y="3976" />
+              <mxPoint x="423" y="1353" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-30" parent="1" edge="1" source="branch-03-group-1" target="branch-03-group-1-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#336F91;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="2179" />
+              <mxPoint x="1367" y="2126" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-31" parent="1" edge="1" source="branch-03-group-1" target="branch-03-group-1-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#336F91;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="2179" />
+              <mxPoint x="1367" y="2224" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-32" parent="1" edge="1" source="branch-03" target="branch-03-group-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#336F91;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="2475" />
+              <mxPoint x="855" y="2179" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-33" parent="1" edge="1" source="branch-03-group-2" target="branch-03-group-2-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#336F91;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="2384" />
+              <mxPoint x="1367" y="2338" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-34" parent="1" edge="1" source="branch-03-group-2" target="branch-03-group-2-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#336F91;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="2384" />
+              <mxPoint x="1367" y="2430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-35" parent="1" edge="1" source="branch-03" target="branch-03-group-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#336F91;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="2475" />
+              <mxPoint x="855" y="2384" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-36" parent="1" edge="1" source="branch-03-group-3" target="branch-03-group-3-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#336F91;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="2582" />
+              <mxPoint x="1367" y="2536" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-37" parent="1" edge="1" source="branch-03-group-3" target="branch-03-group-3-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#336F91;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="2582" />
+              <mxPoint x="1367" y="2628" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-38" parent="1" edge="1" source="branch-03" target="branch-03-group-3" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#336F91;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="2475" />
+              <mxPoint x="855" y="2582" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-39" parent="1" edge="1" source="branch-03-group-4" target="branch-03-group-4-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#336F91;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="2780" />
+              <mxPoint x="1367" y="2734" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-40" parent="1" edge="1" source="branch-03-group-4" target="branch-03-group-4-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#336F91;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="2780" />
+              <mxPoint x="1367" y="2826" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-41" parent="1" edge="1" source="branch-03" target="branch-03-group-4" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#336F91;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="2475" />
+              <mxPoint x="855" y="2780" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-42" parent="1" edge="1" source="root" target="branch-03" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=3.2;strokeColor=#336F91;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="423" y="3976" />
+              <mxPoint x="423" y="2475" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-43" parent="1" edge="1" source="branch-04-group-1" target="branch-04-group-1-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#0D8177;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="3035" />
+              <mxPoint x="1367" y="2990" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-44" parent="1" edge="1" source="branch-04-group-1" target="branch-04-group-1-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#0D8177;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="3035" />
+              <mxPoint x="1367" y="3088" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-45" parent="1" edge="1" source="branch-04" target="branch-04-group-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#0D8177;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="3377" />
+              <mxPoint x="855" y="3035" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-46" parent="1" edge="1" source="branch-04-group-2" target="branch-04-group-2-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#0D8177;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="3256" />
+              <mxPoint x="1367" y="3203" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-47" parent="1" edge="1" source="branch-04-group-2" target="branch-04-group-2-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#0D8177;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="3256" />
+              <mxPoint x="1367" y="3309" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-48" parent="1" edge="1" source="branch-04" target="branch-04-group-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#0D8177;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="3377" />
+              <mxPoint x="855" y="3256" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-49" parent="1" edge="1" source="branch-04-group-3" target="branch-04-group-3-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#0D8177;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="3484" />
+              <mxPoint x="1367" y="3431" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-50" parent="1" edge="1" source="branch-04-group-3" target="branch-04-group-3-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#0D8177;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="3484" />
+              <mxPoint x="1367" y="3537" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-51" parent="1" edge="1" source="branch-04" target="branch-04-group-3" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#0D8177;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="3377" />
+              <mxPoint x="855" y="3484" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-52" parent="1" edge="1" source="branch-04-group-4" target="branch-04-group-4-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#0D8177;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="3712" />
+              <mxPoint x="1367" y="3659" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-53" parent="1" edge="1" source="branch-04-group-4" target="branch-04-group-4-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#0D8177;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="3712" />
+              <mxPoint x="1367" y="3765" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-54" parent="1" edge="1" source="branch-04" target="branch-04-group-4" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#0D8177;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="3377" />
+              <mxPoint x="855" y="3712" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-55" parent="1" edge="1" source="root" target="branch-04" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=3.2;strokeColor=#0D8177;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="423" y="3976" />
+              <mxPoint x="423" y="3377" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-56" parent="1" edge="1" source="branch-05-group-1" target="branch-05-group-1-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="3990" />
+              <mxPoint x="1367" y="3937" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-57" parent="1" edge="1" source="branch-05-group-1" target="branch-05-group-1-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="3990" />
+              <mxPoint x="1367" y="4043" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-58" parent="1" edge="1" source="branch-05" target="branch-05-group-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="4515" />
+              <mxPoint x="855" y="3990" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-59" parent="1" edge="1" source="branch-05-group-2" target="branch-05-group-2-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="4218" />
+              <mxPoint x="1367" y="4165" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-60" parent="1" edge="1" source="branch-05-group-2" target="branch-05-group-2-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="4218" />
+              <mxPoint x="1367" y="4271" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-61" parent="1" edge="1" source="branch-05" target="branch-05-group-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="4515" />
+              <mxPoint x="855" y="4218" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-62" parent="1" edge="1" source="branch-05-group-3" target="branch-05-group-3-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="4393" />
+              <mxPoint x="1367" y="4393" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-63" parent="1" edge="1" source="branch-05" target="branch-05-group-3" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="4515" />
+              <mxPoint x="855" y="4393" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-64" parent="1" edge="1" source="branch-05-group-4" target="branch-05-group-4-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="4568" />
+              <mxPoint x="1367" y="4515" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-65" parent="1" edge="1" source="branch-05-group-4" target="branch-05-group-4-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="4568" />
+              <mxPoint x="1367" y="4621" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-66" parent="1" edge="1" source="branch-05" target="branch-05-group-4" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="4515" />
+              <mxPoint x="855" y="4568" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-67" parent="1" edge="1" source="branch-05-group-5" target="branch-05-group-5-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="4796" />
+              <mxPoint x="1367" y="4743" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-68" parent="1" edge="1" source="branch-05-group-5" target="branch-05-group-5-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="4796" />
+              <mxPoint x="1367" y="4849" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-69" parent="1" edge="1" source="branch-05" target="branch-05-group-5" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="4515" />
+              <mxPoint x="855" y="4796" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-70" parent="1" edge="1" source="branch-05-group-6" target="branch-05-group-6-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="4971" />
+              <mxPoint x="1367" y="4971" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-71" parent="1" edge="1" source="branch-05" target="branch-05-group-6" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="4515" />
+              <mxPoint x="855" y="4971" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-72" parent="1" edge="1" source="branch-05-group-7" target="branch-05-group-7-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="5093" />
+              <mxPoint x="1367" y="5093" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-73" parent="1" edge="1" source="branch-05" target="branch-05-group-7" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="4515" />
+              <mxPoint x="855" y="5093" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-74" parent="1" edge="1" source="root" target="branch-05" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=3.2;strokeColor=#A94788;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="423" y="3976" />
+              <mxPoint x="423" y="4515" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-75" parent="1" edge="1" source="branch-06-group-1" target="branch-06-group-1-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#AC561E;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="5318" />
+              <mxPoint x="1367" y="5265" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-76" parent="1" edge="1" source="branch-06-group-1" target="branch-06-group-1-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#AC561E;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="5318" />
+              <mxPoint x="1367" y="5371" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-77" parent="1" edge="1" source="branch-06" target="branch-06-group-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#AC561E;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="5599" />
+              <mxPoint x="855" y="5318" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-78" parent="1" edge="1" source="branch-06-group-2" target="branch-06-group-2-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#AC561E;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="5546" />
+              <mxPoint x="1367" y="5493" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-79" parent="1" edge="1" source="branch-06-group-2" target="branch-06-group-2-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#AC561E;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="5546" />
+              <mxPoint x="1367" y="5599" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-80" parent="1" edge="1" source="branch-06" target="branch-06-group-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#AC561E;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="5599" />
+              <mxPoint x="855" y="5546" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-81" parent="1" edge="1" source="branch-06-group-3" target="branch-06-group-3-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#AC561E;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="5827" />
+              <mxPoint x="1367" y="5721" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-82" parent="1" edge="1" source="branch-06-group-3" target="branch-06-group-3-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#AC561E;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="5827" />
+              <mxPoint x="1367" y="5827" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-83" parent="1" edge="1" source="branch-06-group-3" target="branch-06-group-3-leaf-3" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#AC561E;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="5827" />
+              <mxPoint x="1367" y="5933" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-84" parent="1" edge="1" source="branch-06" target="branch-06-group-3" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#AC561E;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="5599" />
+              <mxPoint x="855" y="5827" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-85" parent="1" edge="1" source="root" target="branch-06" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=3.2;strokeColor=#AC561E;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="423" y="3976" />
+              <mxPoint x="423" y="5599" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-86" parent="1" edge="1" source="branch-07-group-1" target="branch-07-group-1-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#3C6E88;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="6143" />
+              <mxPoint x="1367" y="6098" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-87" parent="1" edge="1" source="branch-07-group-1" target="branch-07-group-1-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#3C6E88;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="6143" />
+              <mxPoint x="1367" y="6188" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-88" parent="1" edge="1" source="branch-07" target="branch-07-group-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#3C6E88;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="6409" />
+              <mxPoint x="855" y="6143" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-89" parent="1" edge="1" source="branch-07-group-2" target="branch-07-group-2-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#3C6E88;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="6394" />
+              <mxPoint x="1367" y="6296" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-90" parent="1" edge="1" source="branch-07-group-2" target="branch-07-group-2-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#3C6E88;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="6394" />
+              <mxPoint x="1367" y="6394" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-91" parent="1" edge="1" source="branch-07-group-2" target="branch-07-group-2-leaf-3" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#3C6E88;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="6394" />
+              <mxPoint x="1367" y="6492" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-92" parent="1" edge="1" source="branch-07" target="branch-07-group-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#3C6E88;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="6409" />
+              <mxPoint x="855" y="6394" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-93" parent="1" edge="1" source="branch-07-group-3" target="branch-07-group-3-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#3C6E88;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="6660" />
+              <mxPoint x="1367" y="6607" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-94" parent="1" edge="1" source="branch-07-group-3" target="branch-07-group-3-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#3C6E88;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="6660" />
+              <mxPoint x="1367" y="6713" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-95" parent="1" edge="1" source="branch-07" target="branch-07-group-3" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#3C6E88;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="6409" />
+              <mxPoint x="855" y="6660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-96" parent="1" edge="1" source="root" target="branch-07" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=3.2;strokeColor=#3C6E88;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="423" y="3976" />
+              <mxPoint x="423" y="6409" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-97" parent="1" edge="1" source="branch-08-group-1" target="branch-08-group-1-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#587641;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="6938" />
+              <mxPoint x="1367" y="6885" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-98" parent="1" edge="1" source="branch-08-group-1" target="branch-08-group-1-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#587641;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="6938" />
+              <mxPoint x="1367" y="6991" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-99" parent="1" edge="1" source="branch-08" target="branch-08-group-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#587641;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="7333" />
+              <mxPoint x="855" y="6938" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-100" parent="1" edge="1" source="branch-08-group-2" target="branch-08-group-2-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#587641;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="7166" />
+              <mxPoint x="1367" y="7113" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-101" parent="1" edge="1" source="branch-08-group-2" target="branch-08-group-2-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#587641;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="7166" />
+              <mxPoint x="1367" y="7219" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-102" parent="1" edge="1" source="branch-08" target="branch-08-group-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#587641;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="7333" />
+              <mxPoint x="855" y="7166" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-103" parent="1" edge="1" source="branch-08-group-3" target="branch-08-group-3-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#587641;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="7447" />
+              <mxPoint x="1367" y="7341" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-104" parent="1" edge="1" source="branch-08-group-3" target="branch-08-group-3-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#587641;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="7447" />
+              <mxPoint x="1367" y="7447" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-105" parent="1" edge="1" source="branch-08-group-3" target="branch-08-group-3-leaf-3" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#587641;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="7447" />
+              <mxPoint x="1367" y="7553" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-106" parent="1" edge="1" source="branch-08" target="branch-08-group-3" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#587641;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="7333" />
+              <mxPoint x="855" y="7447" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-107" parent="1" edge="1" source="branch-08-group-4" target="branch-08-group-4-leaf-1" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#587641;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="7728" />
+              <mxPoint x="1367" y="7675" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-108" parent="1" edge="1" source="branch-08-group-4" target="branch-08-group-4-leaf-2" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1.5;strokeColor=#587641;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1367" y="7728" />
+              <mxPoint x="1367" y="7781" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-109" parent="1" edge="1" source="branch-08" target="branch-08-group-4" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2.0;strokeColor=#587641;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="855" y="7333" />
+              <mxPoint x="855" y="7728" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-110" parent="1" edge="1" source="root" target="branch-08" style="edgeStyle=none;curved=1;rounded=0;endArrow=none;startArrow=none;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=3.2;strokeColor=#587641;opacity=80;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="423" y="3976" />
+              <mxPoint x="423" y="7333" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

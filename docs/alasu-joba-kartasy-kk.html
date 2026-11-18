@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alasu жобасының картасы</title>
+<style>
+  :root { font-family: "Segoe UI", system-ui, sans-serif; background: #f6f8fc; color: #172b45; color-scheme: light; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-width: 320px; }
+  .app { display: grid; grid-template: auto minmax(0, 1fr) / 262px minmax(0, 1fr); height: 100dvh; }
+  header { grid-column: 1 / -1; display: flex; align-items: center; gap: 16px; padding: 12px 18px;
+           background: #fff; border-bottom: 1px solid #d8e2ee; flex-wrap: wrap; z-index: 1; }
+  h1 { margin: 0; font-size: clamp(18px, 2vw, 24px); letter-spacing: -.02em; }
+  .tools { margin-left: auto; display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+  button, .editor-link { font: inherit; color: inherit; border: 1px solid #c9d6e5; border-radius: 7px;
+                        background: #fff; padding: 6px 10px; cursor: pointer; text-decoration: none; }
+  button:hover, .editor-link:hover { background: #edf3fc; }
+  button:focus-visible, a:focus-visible, #viewport:focus-visible { outline: 3px solid #316ab0; outline-offset: 2px; }
+  .zoom { min-width: 34px; padding: 4px 7px; font-size: 19px; }
+  .zoom-readout { min-width: 52px; text-align: center; color: #405570; font-variant-numeric: tabular-nums; font-size: 13px; }
+  aside { background: #fff; padding: 15px 10px; border-right: 1px solid #d8e2ee; overflow: auto; }
+  aside h2 { margin: 4px 10px 10px; color: #405570; font-size: 14px; }
+  .branch-list { display: grid; gap: 5px; }
+  .branch-button { border-color: transparent; text-align: left; display: flex; align-items: center;
+                   gap: 9px; min-height: 43px; font-size: 14px; padding: 6px 8px; }
+  .branch-button[aria-pressed="true"] { border-color: #cedcec; background: #edf3fc; font-weight: 650; }
+  .branch-number { background: var(--branch-color); color: #fff; min-width: 26px; padding: 3px 2px;
+                   border-radius: 5px; text-align: center; font-size: 12px; font-variant-numeric: tabular-nums; }
+  .help { color: #495e79; margin: 15px 9px; line-height: 1.5; font-size: 13px; }
+  #viewport { position: relative; overflow: hidden; touch-action: none; cursor: grab;
+              background-color: #f6f8fc; background-image: radial-gradient(#cdd8e7 1px, transparent 1px);
+              background-size: 22px 22px; }
+  #viewport.dragging { cursor: grabbing; }
+  #scene { position: absolute; top: 0; left: 0; transform-origin: 0 0; user-select: none; }
+  #diagram { display: block; overflow: visible; }
+  .map-card { box-sizing: border-box; height: 100%; display: flex; align-items: center; padding: 7px 17px; }
+  .card-inner { min-width: 0; }
+  .card-title { font-weight: 700; font-size: 18px; line-height: 1.18; }
+  .detail { font-size: 16px; line-height: 1.27; margin-top: 5px; color: var(--detail); }
+  .eyebrow { font-weight: 650; font-size: 12px; letter-spacing: .075em; margin-bottom: 5px; }
+  .root .card-title { font-size: 44px; line-height: 1.1; }
+  .branch .card-title { font-size: 24px; line-height: 1.17; }
+  .group .card-title { font-size: 19px; }
+
+  .fold-hidden { display: none; }
+  .map-card.branch, .map-card.group { padding: 0; }
+  .node-toggle { box-sizing: border-box; display: flex; align-items: center; justify-content: space-between;
+                 text-align: left; gap: 12px; width: 100%; height: 100%; padding: 7px 15px 7px 17px;
+                 border: 0; border-radius: 11px; background: transparent; color: inherit; }
+  .node-toggle:hover { background: rgba(23, 43, 69, .075); }
+  .node-toggle:focus-visible { outline: 3px solid currentColor; outline-offset: -4px; }
+  .node-toggle .card-inner { overflow-wrap: break-word; }
+  .fold-icon { color: inherit; display: grid; place-items: center; flex: 0 0 25px; height: 25px;
+               border: 1px solid currentColor; border-radius: 50%; font: 600 17px/1 "Segoe UI", sans-serif; }
+  @media (max-width: 820px) {
+    .app { grid-template: auto auto minmax(0,1fr) / minmax(0,1fr); }
+    header { padding: 9px 10px; gap: 7px; }
+    .tools { margin-left: 0; }
+    aside { padding: 5px 8px; border: 0; border-bottom: 1px solid #d8e2ee; }
+    aside h2, .help { display: none; }
+    .branch-list { display: flex; overflow-x: auto; gap: 4px; padding: 2px; }
+    .branch-button { min-height: 36px; flex: 0 0 auto; white-space: nowrap; }
+  }
+
+  [hidden] { display: none !important; }
+  .view-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+  .view-nav a {
+    padding: 6px 9px; border-radius: 6px; color: #38536e;
+    font-size: 14px; font-weight: 650; text-decoration: none;
+  }
+  .view-nav a:hover, .view-nav [aria-current] { background: #eaf1fb; color: #1e4b7e; }
+  .app[data-view="cycle"] { grid-template: auto minmax(0, 1fr) / minmax(0, 1fr); }
+  #cycle-view { grid-column: 1 / -1; min-height: 0; overflow: auto; }
+  .cycle-content { --muted: #465c75; --border: #d7e2ed;
+                   max-width: 1540px; margin: 0 auto; padding: 21px clamp(14px, 3vw, 36px) 30px; }
+  .cycle-content h2 {
+    margin: 0; font-size: clamp(24px, 3vw, 37px); line-height: 1.15; letter-spacing: -.028em;
+  }
+  .cycle-intro { color: #465c75; margin: 7px 0 18px; line-height: 1.45; }
+  .linked-node > rect { stroke: #285b93; stroke-width: 3; }
+  .stage-inputs { margin-bottom: 0; }
+  .input-nodes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .input-node, .handoff-node {
+    display: block; width: 100%; min-width: 0; padding: 8px 9px; border: 1px solid #ceddeb;
+    border-radius: 8px; background: #f4f8fc; text-align: left; color: #203f61;
+    text-decoration: none; overflow-wrap: anywhere;
+  }
+  .input-node:hover, .handoff-node:hover { background: #e9f1fa; border-color: #93acc7; }
+  .input-node span::after { content: "↗"; margin-left: 4px; }
+  @media (min-width: 1101px) and (min-height: 800px) {
+    .cycle-diagram { position: sticky; top: 12px; }
+  }
+  .input-node span, .handoff-node span {
+    display: block; font-size: 11px; font-weight: 650; color: #465c75; line-height: 1.26;
+  }
+  .input-node strong, .handoff-node strong { display: block; font-size: 13px; line-height: 1.25; margin-top: 3px; }
+  .input-lines { display: block; width: 100%; height: 23px; }
+  .input-lines path { fill: none; stroke: var(--module-accent, #34649b); stroke-width: 1.3; vector-effect: non-scaling-stroke; }
+  #cycle-view[data-focused] .stage-heading {
+    align-items: start; margin-bottom: 0; border: 1px solid color-mix(in srgb, var(--module-accent) 32%, white);
+    background: color-mix(in srgb, var(--module-accent) 8%, white); border-radius: 9px; padding: 9px 10px;
+  }
+  #cycle-view[data-focused] .cycle-detail h3 { font-size: 19px; }
+  .stage-result { margin: 6px 0 0; color: #465c75; font-size: 12px; line-height: 1.4; overflow-wrap: anywhere; }
+  .handoff-section { padding: 12px 0 0; }
+  .handoff-section h4 { margin: 0; font-size: 13px; color: var(--module-accent, #34649b); }
+  .handoff-node .handoff-record { margin-top: 5px; font-weight: 400; font-size: 12px; line-height: 1.4; }
+  .handoff-node .handoff-condition { color: var(--module-accent, #34649b); }
+  .stage-action { margin-top: 12px; color: #465c75; font-size: 13px; line-height: 1.45; }
+  .stage-action summary { color: #284c72; font-weight: 650; cursor: pointer; }
+  .stage-action p { margin: 5px 0 0; }
+  .module-section { margin: 8px 0 12px; }
+  .module-section h4 { margin: 0; font-size: 13px; color: #2d547f; }
+  .module-tree { list-style: none; padding: 5px 0 0 0; margin: 0; }
+  .module-tree li { position: relative; padding: 0 0 9px 21px; }
+  .module-tree li::before {
+    content: ""; position: absolute; top: 0; bottom: 0; left: 3px; border-left: 1px solid #9bb5d2;
+  }
+  .module-tree li:last-child::before { bottom: auto; height: 18px; }
+  .module-tree li::after {
+    content: ""; position: absolute; top: 11px; left: 3px; width: 16px; height: 7px;
+    border-left: 1px solid #9bb5d2; border-bottom: 1px solid #9bb5d2;
+    border-radius: 0 0 0 6px;
+  }
+  .module-card {
+    margin: 0; padding: 7px 9px; border: 1px solid #d2e0ed; border-radius: 8px;
+    background: #f4f8fd; overflow-wrap: anywhere;
+  }
+  .module-card strong { display: block; font-size: 13px; line-height: 1.22; }
+  #cycle-view[data-focused] .module-section h4 { color: var(--module-accent); }
+  #cycle-view[data-focused] .module-tree li::before,
+  #cycle-view[data-focused] .module-tree li::after {
+    border-color: color-mix(in srgb, var(--module-accent) 58%, white);
+  }
+  #cycle-view[data-focused] .module-card {
+    border-color: color-mix(in srgb, var(--module-accent) 25%, white);
+    background: color-mix(in srgb, var(--module-accent) 6%, white);
+  }
+  .module-card p { color: #465c75; font-size: 12px; line-height: 1.43; margin: 3px 0 0; }
+  .map-reference {
+    display: inline-block; color: #245895; font-size: 13px; line-height: 1.4; text-underline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .module-tree li { animation: reveal-module .2s ease-out both; }
+    @keyframes reveal-module {
+      from { opacity: 0; transform: translateX(-5px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+  }
+
+
+  .cycle-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 350px); gap: 16px; align-items: start; }
+  .cycle-diagram { min-width: 0; margin: 0; background: #fff; border: 1px solid var(--border); border-radius: 15px; overflow: hidden; }
+  .ring { position: relative; isolation: isolate; aspect-ratio: 960 / 672; }
+  .connections { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .route { fill: none; stroke: #7188a1; stroke-width: 2.1; }
+  .feedback { stroke: #8864ae; stroke-dasharray: 5 4; }
+  .spoke { stroke: #9fb5c9; stroke-width: 1.5; stroke-dasharray: 4 6; }
+  .spoke.is-active { stroke: var(--module-accent, #34649b); stroke-width: 2.6; }
+  #cycle-view[data-focused] .spoke:not(.is-active) { opacity: .24; }
+  #cycle-view[data-focused] .route { opacity: .58; }
+  #cycle-view[data-focused] .stage[aria-pressed="false"] {
+    --stage-bg: #f4f6f9; --stage-border: #d5dfe9; --stage-ink: #455c73;
+  }
+  #cycle-view[data-focused] .hub[aria-pressed="false"] { background: #eaf0f6; border-color: #c5d4e3; color: #324d6a; }
+  #cycle-view[data-focused] .hub[aria-pressed="false"] span { color: #4e637a; }
+  .stage, .hub {
+    position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%);
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+    width: 19%; height: 13.7%; min-width: 0; min-height: 0;
+    padding: 5px clamp(6px, 1.15vw, 13px); gap: 4px;
+    border: 1px solid var(--stage-border, #bad5dc); border-radius: 11px;
+    background: var(--stage-bg, #eaf6f4); color: #152b43;
+    text-align: left; cursor: pointer;
+  }
+  .stage:hover { border-color: var(--stage-ink, #14675c); }
+  .stage[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--stage-ink, #14675c); }
+  .stage-top { display: flex; align-items: center; gap: 5px; color: var(--stage-ink, #14675c); }
+  .number {
+    display: inline-grid; place-items: center; flex: 0 0 auto; width: 20px; height: 20px;
+    border-radius: 50%; font-weight: 700; font-size: 11px; background: var(--stage-ink, #14675c); color: #fff;
+  }
+  .channel { font-size: clamp(8px, .9vw, 11px); font-weight: 650; line-height: 1.04; }
+  .stage-name { font-size: clamp(10px, 1.24vw, 16px); font-weight: 700; line-height: 1.13; }
+  .stage.web { --stage-ink: #245895; --stage-bg: #edf4ff; --stage-border: #bfd0e7; }
+  .stage.cash { --stage-ink: #8b4a12; --stage-bg: #fff2e0; --stage-border: #e8cfaa; }
+  .stage.onec { --stage-ink: #61458a; --stage-bg: #f2edf9; --stage-border: #d4c5e7; }
+  .hub {
+    --x: 50%; --y: 48.958%; width: 25%; height: 24%; padding: 8px 12px; gap: 7px;
+    align-items: center; border-color: #233e60; border-radius: 18px; background: #213b5d; color: #fff;
+    text-align: center;
+  }
+  .hub:hover { background: #2a4a71; }
+  .hub[aria-pressed="true"] { box-shadow: 0 0 0 3px #d7e4f5; }
+  .hub strong { font-size: clamp(13px, 1.75vw, 24px); line-height: 1.09; letter-spacing: -.025em; }
+  .hub span { font-size: clamp(9px, 1.02vw, 13px); color: #dbe9f7; }
+  figcaption {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px 19px;
+    padding: 9px 13px; border-top: 1px solid #e7eef5; color: var(--muted); font-size: 12px;
+  }
+  .key { display: inline-flex; align-items: center; gap: 7px; }
+  .key-line { display: inline-block; width: 19px; border-top: 2px solid #7188a1; }
+  .key-line.check { border-top: 2px dashed #849eb9; }
+  .key-line.loop { border-top: 2px dashed #8864ae; }
+  .cycle-detail {
+    min-width: 0; border: 1px solid var(--border); border-radius: 15px; background: #fff;
+    padding: clamp(13px, 1.7vw, 22px);
+  }
+  .stage-heading { display: flex; justify-content: space-between; align-items: start; gap: 9px; margin-bottom: 10px; }
+  .cycle-detail h3 { margin: 0; font-size: clamp(19px, 2vw, 24px); line-height: 1.2; letter-spacing: -.025em; }
+  .clear-stage { flex: 0 0 auto; font-size: 12px; padding: 4px 7px; }
+  .cycle-detail dl { margin: 0; }
+  .cycle-detail dt { color: #284c72; font-size: 13px; font-weight: 700; margin: 11px 0 3px; }
+  .cycle-detail dd { color: var(--muted); line-height: 1.43; font-size: 13.5px; margin: 0; overflow-wrap: anywhere; }
+  @media (max-width: 1100px) {
+    .cycle-layout { grid-template-columns: minmax(0, 1fr); }
+    .cycle-detail dl { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 4px 20px; }
+  }
+  @media (max-width: 620px) {
+    .ring { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; aspect-ratio: auto; padding: 10px; }
+    .connections, figcaption { display: none; }
+    .stage, .hub { position: static; transform: none; width: auto; height: auto; min-height: 74px; padding: 8px; }
+    .channel { font-size: 10px; }
+    .stage-name { font-size: 14px; }
+    .hub { grid-column: 1 / -1; grid-row: 1; min-height: 64px; }
+    .hub strong { font-size: 18px; }
+    .hub span { font-size: 12px; }
+    .cycle-detail dl { grid-template-columns: minmax(0,1fr); }
+  }
+
+  .app[data-view="tasks"] { grid-template: auto minmax(0, 1fr) / minmax(0, 1fr); }
+  #tasks-view { grid-column: 1 / -1; min-height: 0; overflow: auto; }
+  .task-content { max-width: 900px; margin: 0 auto; padding: 22px clamp(14px, 3vw, 36px) 30px; }
+  .task-content h2 { margin: 0; font-size: clamp(23px, 3vw, 32px); }
+  .task-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  .task-note { color: #465c75; font-size: 14px; line-height: 1.5; }
+  .task-list { list-style: none; padding: 0; margin: 14px 0 20px; display: grid; gap: 8px; }
+  .task-list li { display: flex; align-items: start; gap: 10px; background: #fff; border: 1px solid #d7e2ed; border-radius: 8px; padding: 10px 12px; }
+  .task-list a { flex: 1; min-width: 0; overflow-wrap: anywhere; text-decoration: none; color: #1d4e82; font-weight: 600; }
+  .task-list a:hover { text-decoration: underline; }
+  .task-state { flex: 0 0 auto; border-radius: 5px; color: #275448; background: #e8f4ef; padding: 2px 6px; font-size: 12px; }
+  .task-state[data-state="closed"] { background: #eef1f5; color: #465c75; }
+  .task-plan { border-top: 1px solid #d7e2ed; padding-top: 16px; }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>Alasu жобасының картасы</h1>
+    <nav class="view-nav" aria-label="Жоба беттері">
+      <a href="#map" data-view-link="map" aria-current="page">Жоба картасы</a>
+      <a href="#cycle" data-view-link="cycle">Жұмыс айналымы</a>
+      <a href="#tasks" data-view-link="tasks">Тапсырмалар</a>
+    </nav>
+    <div class="tools" id="map-tools" aria-label="Карта құралдары">
+      <button id="toggle-all" type="button">Барлығын ашу</button>
+      <button id="overview" type="button">Толық карта</button>
+      <button id="zoom-out" class="zoom" type="button" aria-label="Кішірейту">−</button>
+      <output id="zoom-value" class="zoom-readout" aria-label="Масштаб">100%</output>
+      <button id="zoom-in" class="zoom" type="button" aria-label="Үлкейту">+</button>
+      <a class="editor-link" href="alasu-joba-kartasy-kk.drawio" download>Өңделетін сызба</a>
+    </div>
+  </header>
+  <aside id="map-sidebar">
+    <h2>Тармақтар</h2>
+    <nav class="branch-list" aria-label="Карта тармақтары">
+      <button class="branch-button" type="button" data-branch="branch-01" aria-pressed="false"><span class="branch-number" style="--branch-color:#316AB0">01</span><span>Жоба және платформалар</span></button>
+<button class="branch-button" type="button" data-branch="branch-02" aria-pressed="false"><span class="branch-number" style="--branch-color:#6948A5">02</span><span>Лауазымдар мен рұқсаттар</span></button>
+<button class="branch-button" type="button" data-branch="branch-03" aria-pressed="false"><span class="branch-number" style="--branch-color:#336F91">03</span><span>Веб-сайттың бөлімдері</span></button>
+<button class="branch-button" type="button" data-branch="branch-04" aria-pressed="false"><span class="branch-number" style="--branch-color:#0D8177">04</span><span>Мобильді қосымша</span></button>
+<button class="branch-button" type="button" data-branch="branch-05" aria-pressed="false"><span class="branch-number" style="--branch-color:#A94788">05</span><span>Тапсырыстан 1С-ке дейін</span></button>
+<button class="branch-button" type="button" data-branch="branch-06" aria-pressed="false"><span class="branch-number" style="--branch-color:#AC561E">06</span><span>Ақша, құжаттар және 1С</span></button>
+<button class="branch-button" type="button" data-branch="branch-07" aria-pressed="false"><span class="branch-number" style="--branch-color:#3C6E88">07</span><span>Техникалық архитектура</span></button>
+<button class="branch-button" type="button" data-branch="branch-08" aria-pressed="false"><span class="branch-number" style="--branch-color:#587641">08</span><span>Сынақ және бірлескен жұмыс</span></button>
+    </nav>
+    <p class="help">Түйінді басып, тармағын ашыңыз немесе жабыңыз. Картаны сүйреп жылжытыңыз, тінтуір дөңгелегімен масштабтаңыз.</p>
+  </aside>
+  <main id="viewport" tabindex="0" aria-label="Масштабтауға және жылжытуға болатын карта">
+    <div id="scene"><svg id="diagram" width="2320" height="7928" viewBox="0 0 2320 7928" xmlns="http://www.w3.org/2000/svg" role="group" aria-labelledby="map-title map-description"><title id="map-title">Alasu жобасының толық картасы</title><desc id="map-description">Сегіз тармақтан тұратын жоба картасы: веб, мобильді қосымша, лауазымдар, тапсырыстың жолы, 1С, архитектура және бірлескен сынақ.</desc><g id="branch-01-group-1-leaf-1"><rect x="1430" y="70" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#bdcfe6" stroke-width="1.3"/><foreignObject x="1430" y="70" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Бір тапсырыстың толық жолы</div><div class="detail">Дүкенге барудан бастап тауарды жеткізуге, ақшаны салыстыруға және 1С-ке енгізуге дейінгі жұмысты байланыстырады.</div></div></div></foreignObject></g><g id="branch-01-group-1-leaf-2"><rect x="1430" y="176" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#bdcfe6" stroke-width="1.3"/><foreignObject x="1430" y="176" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Бірізді деректер</div><div class="detail">Тапсырыс, қойма, рейс, төлем және құжат бір жүйеде тіркеледі. Әр қызметкер өзіне тиесілі жұмысты көреді.</div></div></div></foreignObject></g><g id="branch-01-group-1"><rect x="912" y="140" width="383" height="58" rx="11" fill="#e2eaf4" stroke="#9cb7d9" stroke-width="1.3"/><foreignObject x="912" y="140" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Жобаның мақсаты</div></div></div></foreignObject></g><g id="branch-01-group-2-leaf-1"><rect x="1430" y="298" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#bdcfe6" stroke-width="1.3"/><foreignObject x="1430" y="298" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">1 веб-сайт</div><div class="detail">Компьютерден де, телефон браузерінен де ашылады. Вебте 8 мәзір бөлімі және 59 кіру нүктесі бар.</div></div></div></foreignObject></g><g id="branch-01-group-2-leaf-2"><rect x="1430" y="404" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#bdcfe6" stroke-width="1.3"/><foreignObject x="1430" y="404" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">1 мобильді қосымша</div><div class="detail">Далалық жұмыс, жеткізу және қойма режимдері бар. Телефон режимі 8 лауазымға бапталған. Қосымша сынақ кезеңінде.</div></div></div></foreignObject></g><g id="branch-01-group-2"><rect x="912" y="368" width="383" height="58" rx="11" fill="#e2eaf4" stroke="#9cb7d9" stroke-width="1.3"/><foreignObject x="912" y="368" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Екі жұмыс ортасы</div></div></div></foreignObject></g><g id="branch-01-group-3-leaf-1"><rect x="1430" y="526" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#bdcfe6" stroke-width="1.3"/><foreignObject x="1430" y="526" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">1С бухгалтериясы</div><div class="detail">Бухгалтерлік есеп бөлек 1С жүйесінде жүргізіледі. Alasu құжаттар пакетін дайындайды, уәкілетті қызметкер оны 1С-ке қолмен жүктейді.</div></div></div></foreignObject></g><g id="branch-01-group-3"><rect x="912" y="543" width="383" height="58" rx="11" fill="#e2eaf4" stroke="#9cb7d9" stroke-width="1.3"/><foreignObject x="912" y="543" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Жүйенің шекарасы</div></div></div></foreignObject></g><g id="branch-01"><rect x="466" y="297" width="324" height="94" rx="15" fill="#316AB0" stroke="#316AB0" stroke-width="1.3"/><foreignObject x="466" y="297" width="324" height="94"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card branch" style="color:#FFFFFF;--detail:#FFFFFF"><div class="card-inner"><div class="eyebrow">01</div><div class="card-title">Жоба және платформалар</div></div></div></foreignObject></g><g id="branch-02-group-1-leaf-1"><rect x="1430" y="698" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cfc4e2" stroke-width="1.3"/><foreignObject x="1430" y="698" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Құрылтайшы және бас директор</div><div class="detail">Компания бойынша қорытынды көрсеткіштерді, шешім күтетін мәселелерді және жеткізу барысын қарайды.</div></div></div></foreignObject></g><g id="branch-02-group-1-leaf-2"><rect x="1430" y="804" width="790" height="77" rx="11" fill="#FFFFFF" stroke="#cfc4e2" stroke-width="1.3"/><foreignObject x="1430" y="804" width="790" height="77"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Өңірлік және коммерциялық директор</div><div class="detail">Өңір, сату және коммерциялық көрсеткіштерді берілген рұқсаттар аясында бақылайды.</div></div></div></foreignObject></g><g id="branch-02-group-1"><rect x="912" y="760" width="383" height="58" rx="11" fill="#eae5f2" stroke="#b7a7d4" stroke-width="1.3"/><foreignObject x="912" y="760" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Басшылық · 4</div></div></div></foreignObject></g><g id="branch-02-group-2-leaf-1"><rect x="1430" y="911" width="790" height="77" rx="11" fill="#FFFFFF" stroke="#cfc4e2" stroke-width="1.3"/><foreignObject x="1430" y="911" width="790" height="77"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Сату тобының басшылары</div><div class="detail">Сату жетекшісі, супервайзер және аумақтық менеджер команданы басқарады.</div></div></div></foreignObject></g><g id="branch-02-group-2-leaf-2"><rect x="1430" y="1002" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cfc4e2" stroke-width="1.3"/><foreignObject x="1430" y="1002" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Тапсырыс пен талдау</div><div class="detail">Сауда өкілі, тапсырыс операторы және сату талдаушысы өз міндетіне сай тапсырыспен немесе есеппен жұмыс істейді.</div></div></div></foreignObject></g><g id="branch-02-group-2-leaf-3"><rect x="1430" y="1108" width="790" height="77" rx="11" fill="#FFFFFF" stroke="#cfc4e2" stroke-width="1.3"/><foreignObject x="1430" y="1108" width="790" height="77"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Дүкендегі тауар жаймасы</div><div class="detail">Мерчендайзер және тұрақты мерчендайзер сөрені тексеріп, фото мен тексеру парағын тіркейді.</div></div></div></foreignObject></g><g id="branch-02-group-2"><rect x="912" y="1019" width="383" height="58" rx="11" fill="#eae5f2" stroke="#b7a7d4" stroke-width="1.3"/><foreignObject x="912" y="1019" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Сату · 8</div></div></div></foreignObject></g><g id="branch-02-group-3-leaf-1"><rect x="1430" y="1215" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cfc4e2" stroke-width="1.3"/><foreignObject x="1430" y="1215" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Басқару және талдау</div><div class="detail">Қаржы директоры мен қаржы талдаушысы касса, берешек, шығыс және есеп көрсеткіштерін қарайды.</div></div></div></foreignObject></g><g id="branch-02-group-3-leaf-2"><rect x="1430" y="1321" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cfc4e2" stroke-width="1.3"/><foreignObject x="1430" y="1321" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Бухгалтерия және касса</div><div class="detail">Бас бухгалтер, бухгалтер көмекшісі және кассир төлемді, кассалық құжатты немесе 1С пакетін өз рұқсатына сай өңдейді.</div></div></div></foreignObject></g><g id="branch-02-group-3"><rect x="912" y="1285" width="383" height="58" rx="11" fill="#eae5f2" stroke="#b7a7d4" stroke-width="1.3"/><foreignObject x="912" y="1285" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Қаржы · 5</div></div></div></foreignObject></g><g id="branch-02-group-4-leaf-1"><rect x="1430" y="1443" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cfc4e2" stroke-width="1.3"/><foreignObject x="1430" y="1443" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Қойма операциялары</div><div class="detail">Қоймашы, қойма меңгерушісі және қойма логисі жинақтау, қабылдау, қалдық пен түгендеуді рұқсатына сай жүргізеді.</div></div></div></foreignObject></g><g id="branch-02-group-4-leaf-2"><rect x="1430" y="1549" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cfc4e2" stroke-width="1.3"/><foreignObject x="1430" y="1549" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Жинақтау және тиеу</div><div class="detail">Тауар жинаушы мен жүк тиегіш жүргізушісінің қойма деректеріне қолжетімділігі міндетіне қарай беріледі.</div></div></div></foreignObject></g><g id="branch-02-group-4"><rect x="912" y="1513" width="383" height="58" rx="11" fill="#eae5f2" stroke="#b7a7d4" stroke-width="1.3"/><foreignObject x="912" y="1513" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Қойма · 5</div></div></div></foreignObject></g><g id="branch-02-group-5-leaf-1"><rect x="1430" y="1671" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cfc4e2" stroke-width="1.3"/><foreignObject x="1430" y="1671" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Маршрут пен көлік</div><div class="detail">Жеткізу логисі рейс құрады. Экспедитор мен аға экспедитор өз рейсін орындайды. Жүк көлігі жүргізушісінің рөлі бөлек.</div></div></div></foreignObject></g><g id="branch-02-group-5"><rect x="912" y="1688" width="383" height="58" rx="11" fill="#eae5f2" stroke="#b7a7d4" stroke-width="1.3"/><foreignObject x="912" y="1688" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Жеткізу · 4</div></div></div></foreignObject></g><g id="branch-02-group-6-leaf-1"><rect x="1430" y="1793" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cfc4e2" stroke-width="1.3"/><foreignObject x="1430" y="1793" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Әкімшілік пен мамандар</div><div class="detail">HR әкімшісі, жүйе әкімшісі, тоңазытқыш жабдықтары бойынша логист, заңгер, қауіпсіздік қызметкері және маркетинг маманы.</div></div></div></foreignObject></g><g id="branch-02-group-6"><rect x="912" y="1810" width="383" height="58" rx="11" fill="#eae5f2" stroke="#b7a7d4" stroke-width="1.3"/><foreignObject x="912" y="1810" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Қолдау · 6</div></div></div></foreignObject></g><g id="branch-02-group-7-leaf-1"><rect x="1430" y="1915" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cfc4e2" stroke-width="1.3"/><foreignObject x="1430" y="1915" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">32 рөл · 8 жұмыс беті</div><div class="detail">12 рөлге бастапқы бет арнайы бапталған. Қалған 20 рөл жүйеге кіргенде өзі аша алатын алғашқы бетке өтеді.</div></div></div></foreignObject></g><g id="branch-02-group-7"><rect x="912" y="1932" width="383" height="58" rx="11" fill="#eae5f2" stroke="#b7a7d4" stroke-width="1.3"/><foreignObject x="912" y="1932" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Жұмыс бетіне кіру</div></div></div></foreignObject></g><g id="branch-02"><rect x="466" y="1306" width="324" height="94" rx="15" fill="#6948A5" stroke="#6948A5" stroke-width="1.3"/><foreignObject x="466" y="1306" width="324" height="94"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card branch" style="color:#FFFFFF;--detail:#FFFFFF"><div class="card-inner"><div class="eyebrow">02</div><div class="card-title">Лауазымдар мен рұқсаттар</div></div></div></foreignObject></g><g id="branch-03-group-1-leaf-1"><rect x="1430" y="2087" width="790" height="77" rx="11" fill="#FFFFFF" stroke="#bed1dc" stroke-width="1.3"/><foreignObject x="1430" y="2087" width="790" height="77"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Басты бет</div><div class="detail">Құрылтайшының бақылау тақтасы, «Менің күнім» және тапсырмалар.</div></div></div></foreignObject></g><g id="branch-03-group-1-leaf-2"><rect x="1430" y="2178" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#bed1dc" stroke-width="1.3"/><foreignObject x="1430" y="2178" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Сату</div><div class="detail">Тапсырыстар, жоспар мен нәтиже, клиенттер базасы, сауда өкілдерінің сапар картасы және акциялар.</div></div></div></foreignObject></g><g id="branch-03-group-1"><rect x="912" y="2150" width="383" height="58" rx="11" fill="#e2ebf0" stroke="#9dbaca" stroke-width="1.3"/><foreignObject x="912" y="2150" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Күнделікті басқару</div></div></div></foreignObject></g><g id="branch-03-group-2-leaf-1"><rect x="1430" y="2300" width="790" height="77" rx="11" fill="#FFFFFF" stroke="#bed1dc" stroke-width="1.3"/><foreignObject x="1430" y="2300" width="790" height="77"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Қойма</div><div class="detail">Қалдық, кіріс, түгендеу, ауыстыру, есептен шығару және жеткізушіге қайтару.</div></div></div></foreignObject></g><g id="branch-03-group-2-leaf-2"><rect x="1430" y="2391" width="790" height="77" rx="11" fill="#FFFFFF" stroke="#bed1dc" stroke-width="1.3"/><foreignObject x="1430" y="2391" width="790" height="77"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Логистика</div><div class="detail">Жеткізілетін тапсырыстар, рейстер, көлік, экспедиторлардың картадағы орны және жабдық.</div></div></div></foreignObject></g><g id="branch-03-group-2"><rect x="912" y="2355" width="383" height="58" rx="11" fill="#e2ebf0" stroke="#9dbaca" stroke-width="1.3"/><foreignObject x="912" y="2355" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Тауар және жеткізу</div></div></div></foreignObject></g><g id="branch-03-group-3-leaf-1"><rect x="1430" y="2498" width="790" height="77" rx="11" fill="#FFFFFF" stroke="#bed1dc" stroke-width="1.3"/><foreignObject x="1430" y="2498" width="790" height="77"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Қаржы</div><div class="detail">Касса, банк, дебиторлық берешек, шығыс, пайда мен залал есебі және 1С құжаттар пакеті.</div></div></div></foreignObject></g><g id="branch-03-group-3-leaf-2"><rect x="1430" y="2589" width="790" height="77" rx="11" fill="#FFFFFF" stroke="#bed1dc" stroke-width="1.3"/><foreignObject x="1430" y="2589" width="790" height="77"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Қызметкерлер</div><div class="detail">Қызметкерлер тізімі, жұмыс күні, ауытқулар, KPI және сыйақы.</div></div></div></foreignObject></g><g id="branch-03-group-3"><rect x="912" y="2553" width="383" height="58" rx="11" fill="#e2ebf0" stroke="#9dbaca" stroke-width="1.3"/><foreignObject x="912" y="2553" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Ақша және қызметкерлер</div></div></div></foreignObject></g><g id="branch-03-group-4-leaf-1"><rect x="1430" y="2696" width="790" height="77" rx="11" fill="#FFFFFF" stroke="#bed1dc" stroke-width="1.3"/><foreignObject x="1430" y="2696" width="790" height="77"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Есептер</div><div class="detail">Бөлімдер мен тауарлар бойынша есеп, дерек экспорты және жоспарлы тарату.</div></div></div></foreignObject></g><g id="branch-03-group-4-leaf-2"><rect x="1430" y="2787" width="790" height="77" rx="11" fill="#FFFFFF" stroke="#bed1dc" stroke-width="1.3"/><foreignObject x="1430" y="2787" width="790" height="77"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Баптаулар</div><div class="detail">Пайдаланушылар, рөлдер, дерек алмасу, бақылау ережелері және әрекет журналы.</div></div></div></foreignObject></g><g id="branch-03-group-4"><rect x="912" y="2751" width="383" height="58" rx="11" fill="#e2ebf0" stroke="#9dbaca" stroke-width="1.3"/><foreignObject x="912" y="2751" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Есеп және баптау</div></div></div></foreignObject></g><g id="branch-03"><rect x="466" y="2428" width="324" height="94" rx="15" fill="#336F91" stroke="#336F91" stroke-width="1.3"/><foreignObject x="466" y="2428" width="324" height="94"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card branch" style="color:#FFFFFF;--detail:#FFFFFF"><div class="card-inner"><div class="eyebrow">03</div><div class="card-title">Веб-сайттың бөлімдері</div></div></div></foreignObject></g><g id="branch-04-group-1-leaf-1"><rect x="1430" y="2944" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#b2d7d3" stroke-width="1.3"/><foreignObject x="1430" y="2944" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Дүкенге бару</div><div class="detail">Сауда өкілі мен мерчендайзерлер маршрутты қарап, барғанын белгілейді, фото түсіреді және тексеру парағын толтырады.</div></div></div></foreignObject></g><g id="branch-04-group-1-leaf-2"><rect x="1430" y="3050" width="790" height="77" rx="11" fill="#FFFFFF" stroke="#b2d7d3" stroke-width="1.3"/><foreignObject x="1430" y="3050" width="790" height="77"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Сауда өкілінің жұмысы</div><div class="detail">Жаңа сауда нүктесін тіркейді, тапсырыс жасайды, оның күйін және клиент берешегін қарайды.</div></div></div></foreignObject></g><g id="branch-04-group-1"><rect x="912" y="3006" width="383" height="58" rx="11" fill="#ddedec" stroke="#8bc3be" stroke-width="1.3"/><foreignObject x="912" y="3006" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Далалық жұмыс · 3 рөл</div></div></div></foreignObject></g><g id="branch-04-group-2-leaf-1"><rect x="1430" y="3157" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#b2d7d3" stroke-width="1.3"/><foreignObject x="1430" y="3157" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Рейс және дүкендер</div><div class="detail">Экспедитор мен аға экспедитор тауарды қабылдап, дүкенге дейін бағыт алады және жеткізу нәтижесі мен төлемді тіркейді.</div></div></div></foreignObject></g><g id="branch-04-group-2-leaf-2"><rect x="1430" y="3263" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#b2d7d3" stroke-width="1.3"/><foreignObject x="1430" y="3263" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Құжат пен қайтарым</div><div class="detail">Жүкқұжатты көрсетеді, қол қойылған құжатты суретке түсіреді, жеткізілмеген тауарды тіркейді және түзету сұрай алады.</div></div></div></foreignObject></g><g id="branch-04-group-2"><rect x="912" y="3227" width="383" height="58" rx="11" fill="#ddedec" stroke="#8bc3be" stroke-width="1.3"/><foreignObject x="912" y="3227" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Жеткізу · 2 рөл</div></div></div></foreignObject></g><g id="branch-04-group-3-leaf-1"><rect x="1430" y="3385" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#b2d7d3" stroke-width="1.3"/><foreignObject x="1430" y="3385" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Тауарды жинақтау</div><div class="detail">Қоймашы, қойма меңгерушісі және қойма логисі өз рұқсатына сай тиеу тізімін ашып, тауарды жинап береді.</div></div></div></foreignObject></g><g id="branch-04-group-3-leaf-2"><rect x="1430" y="3491" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#b2d7d3" stroke-width="1.3"/><foreignObject x="1430" y="3491" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Қабылдау және қалдық</div><div class="detail">Келген және рейстен қайтқан тауарды қабылдайды, қалдық пен партияны қарайды. Түгендеу рұқсат болғанда ашылады.</div></div></div></foreignObject></g><g id="branch-04-group-3"><rect x="912" y="3455" width="383" height="58" rx="11" fill="#ddedec" stroke="#8bc3be" stroke-width="1.3"/><foreignObject x="912" y="3455" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Қойма · 3 рөл</div></div></div></foreignObject></g><g id="branch-04-group-4-leaf-1"><rect x="1430" y="3613" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#b2d7d3" stroke-width="1.3"/><foreignObject x="1430" y="3613" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Аккаунт пен тіл</div><div class="detail">Құрылғыны белсендіру, профиль, құпиясөз, қазақша және орысша интерфейс, тапсырмалар мен қолданба ішіндегі хабарламалар.</div></div></div></foreignObject></g><g id="branch-04-group-4-leaf-2"><rect x="1430" y="3719" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#b2d7d3" stroke-width="1.3"/><foreignObject x="1430" y="3719" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Байланыс үзілгенде</div><div class="detail">Офлайн қолдауы бар әрекеттер телефонда сақталады. Байланыс келгенде жіберіледі, ал қабылданбаған жазбаның себебі көрсетіледі.</div></div></div></foreignObject></g><g id="branch-04-group-4"><rect x="912" y="3683" width="383" height="58" rx="11" fill="#ddedec" stroke="#8bc3be" stroke-width="1.3"/><foreignObject x="912" y="3683" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Барлық режимге ортақ</div></div></div></foreignObject></g><g id="branch-04"><rect x="466" y="3330" width="324" height="94" rx="15" fill="#0D8177" stroke="#0D8177" stroke-width="1.3"/><foreignObject x="466" y="3330" width="324" height="94"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card branch" style="color:#FFFFFF;--detail:#FFFFFF"><div class="card-inner"><div class="eyebrow">04</div><div class="card-title">Мобильді қосымша</div></div></div></foreignObject></g><g id="branch-05-group-1-leaf-1"><rect x="1430" y="3891" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e3c4d9" stroke-width="1.3"/><foreignObject x="1430" y="3891" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Кіруді тіркеу</div><div class="detail">Сауда өкілі жұмыс күнін бастайды, сауда нүктесінде тұрғанын GPS арқылы растайды, фото мен тексеру парағын сақтайды.</div></div></div></foreignObject></g><g id="branch-05-group-1-leaf-2"><rect x="1430" y="3997" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e3c4d9" stroke-width="1.3"/><foreignObject x="1430" y="3997" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Жабдықты тексеру</div><div class="detail">Тоңазытқыш немесе витрина кодын сканерлеп, оның осы нүктеде тіркелгенін тексереді. Фото сол сапардағы күйін көрсетеді, орнату тарихы бөлек сақталады.</div></div></div></foreignObject></g><g id="branch-05-group-1"><rect x="912" y="3961" width="383" height="58" rx="11" fill="#f3e5ee" stroke="#d6a7c6" stroke-width="1.3"/><foreignObject x="912" y="3961" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">1 · Дүкенге бару</div></div></div></foreignObject></g><g id="branch-05-group-2-leaf-1"><rect x="1430" y="4119" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e3c4d9" stroke-width="1.3"/><foreignObject x="1430" y="4119" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Клиентті таңдау</div><div class="detail">Бар клиентті ашу немесе жаңа нүктенің атауын, мекенжайын, орнын және байланысын енгізіп, қайталануын тексеру.</div></div></div></foreignObject></g><g id="branch-05-group-2-leaf-2"><rect x="1430" y="4225" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e3c4d9" stroke-width="1.3"/><foreignObject x="1430" y="4225" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Жүйелік тексеріс</div><div class="detail">Баға, берешек шегі және шектеулер тексеріледі. Шарттан өткен тапсырыс бірден «Жеткізуге дайын тапсырыстар» тізіміне түседі.</div></div></div></foreignObject></g><g id="branch-05-group-2"><rect x="912" y="4189" width="383" height="58" rx="11" fill="#f3e5ee" stroke="#d6a7c6" stroke-width="1.3"/><foreignObject x="912" y="4189" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">2 · Тапсырыс</div></div></div></foreignObject></g><g id="branch-05-group-3-leaf-1"><rect x="1430" y="4347" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e3c4d9" stroke-width="1.3"/><foreignObject x="1430" y="4347" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Логист · веб</div><div class="detail">Тапсырыстарды іріктейді, көлік пен экспедиторды бекітеді, аялдамалар ретін қояды. Жүйе тиеу тізімін жасайды.</div></div></div></foreignObject></g><g id="branch-05-group-3"><rect x="912" y="4364" width="383" height="58" rx="11" fill="#f3e5ee" stroke="#d6a7c6" stroke-width="1.3"/><foreignObject x="912" y="4364" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">3 · Рейс құру</div></div></div></foreignObject></g><g id="branch-05-group-4-leaf-1"><rect x="1430" y="4469" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e3c4d9" stroke-width="1.3"/><foreignObject x="1430" y="4469" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Қоймашы · қосымша</div><div class="detail">Тиеу тізімімен тауарды жинайды. Нақты санын және жетіспеу себебін енгізеді, «Берілді» деп белгілейді.</div></div></div></foreignObject></g><g id="branch-05-group-4-leaf-2"><rect x="1430" y="4575" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e3c4d9" stroke-width="1.3"/><foreignObject x="1430" y="4575" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Экспедитор · қосымша</div><div class="detail">Берілген тауарды қайта санайды. Қабылдағаннан кейін қойма қалдығы азаяды және жүкқұжат нөмірі беріледі.</div></div></div></foreignObject></g><g id="branch-05-group-4"><rect x="912" y="4539" width="383" height="58" rx="11" fill="#f3e5ee" stroke="#d6a7c6" stroke-width="1.3"/><foreignObject x="912" y="4539" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">4 · Тауарды беру</div></div></div></foreignObject></g><g id="branch-05-group-5-leaf-1"><rect x="1430" y="4697" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e3c4d9" stroke-width="1.3"/><foreignObject x="1430" y="4697" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Жеткізу нәтижесі</div><div class="detail">Толық не ішінара жеткізу, клиенттің бас тартуы немесе жеткізе алмау тіркеледі. Қажет болса қол қойылған жүкқұжат суретке түсіріледі.</div></div></div></foreignObject></g><g id="branch-05-group-5-leaf-2"><rect x="1430" y="4803" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e3c4d9" stroke-width="1.3"/><foreignObject x="1430" y="4803" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Төлемді тіркеу</div><div class="detail">Қолма-қол, аударым және Kaspi QR сомалары бөлек жазылады. Аударым не QR үшін чек фотосын қосуға болады.</div></div></div></foreignObject></g><g id="branch-05-group-5"><rect x="912" y="4767" width="383" height="58" rx="11" fill="#f3e5ee" stroke="#d6a7c6" stroke-width="1.3"/><foreignObject x="912" y="4767" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">5 · Дүкенге жеткізу</div></div></div></foreignObject></g><g id="branch-05-group-6-leaf-1"><rect x="1430" y="4925" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e3c4d9" stroke-width="1.3"/><foreignObject x="1430" y="4925" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Касса мен қойма</div><div class="detail">Кассир нақты қолма-қол ақшаны қабылдайды. Қоймашы қайтқан тауарды санап, жарамдысы мен ақаулысын бөлек тіркейді.</div></div></div></foreignObject></g><g id="branch-05-group-6"><rect x="912" y="4942" width="383" height="58" rx="11" fill="#f3e5ee" stroke="#d6a7c6" stroke-width="1.3"/><foreignObject x="912" y="4942" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">6 · Ақша мен қайтарымды өткізу</div></div></div></foreignObject></g><g id="branch-05-group-7-leaf-1"><rect x="1430" y="5047" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e3c4d9" stroke-width="1.3"/><foreignObject x="1430" y="5047" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Бухгалтер · веб және 1С</div><div class="detail">Дайын құжаттар пакетін экспорттайды. Уәкілетті қызметкер оны 1С-ке жүктейді, нәтижені және 1С құжат нөмірін Alasu-да белгілейді.</div></div></div></foreignObject></g><g id="branch-05-group-7"><rect x="912" y="5064" width="383" height="58" rx="11" fill="#f3e5ee" stroke="#d6a7c6" stroke-width="1.3"/><foreignObject x="912" y="5064" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">7 · 1С-ке енгізу</div></div></div></foreignObject></g><g id="branch-05"><rect x="466" y="4468" width="324" height="94" rx="15" fill="#A94788" stroke="#A94788" stroke-width="1.3"/><foreignObject x="466" y="4468" width="324" height="94"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card branch" style="color:#FFFFFF;--detail:#FFFFFF"><div class="card-inner"><div class="eyebrow">05</div><div class="card-title">Тапсырыстан 1С-ке дейін</div></div></div></foreignObject></g><g id="branch-06-group-1-leaf-1"><rect x="1430" y="5219" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e4c9b7" stroke-width="1.3"/><foreignObject x="1430" y="5219" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Қолма-қол ақша</div><div class="detail">Экспедитор өткізген соманы кассир растайды. Кіріс кассалық ордері жасалады, оны тиісті рұқсаты бар екінші адам бекітеді.</div></div></div></foreignObject></g><g id="branch-06-group-1-leaf-2"><rect x="1430" y="5325" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e4c9b7" stroke-width="1.3"/><foreignObject x="1430" y="5325" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Аударым және Kaspi QR</div><div class="detail">Бухгалтер төлемді банк немесе Kaspi көшірмесімен салыстырады. 1С-тегі ақшалай кіріс банк көшірмесі бойынша тіркеледі.</div></div></div></foreignObject></g><g id="branch-06-group-1"><rect x="912" y="5289" width="383" height="58" rx="11" fill="#f3e7e0" stroke="#d7ae93" stroke-width="1.3"/><foreignObject x="912" y="5289" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Төлемді салыстыру</div></div></div></foreignObject></g><g id="branch-06-group-2-leaf-1"><rect x="1430" y="5447" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e4c9b7" stroke-width="1.3"/><foreignObject x="1430" y="5447" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Ортақ тексеру тізбегі</div><div class="detail">Тапсырыс → рейс → жүкқұжат → төлем немесе қайтарым → 1С құжаты. Тауар саны мен соманы осы нөмірлер арқылы салыстырады.</div></div></div></foreignObject></g><g id="branch-06-group-2-leaf-2"><rect x="1430" y="5553" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e4c9b7" stroke-width="1.3"/><foreignObject x="1430" y="5553" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Сәйкессіздік және түзету</div><div class="detail">Экспедитор қате нәтижені түзетуді сұрай алады. Рұқсаты бар басқа қызметкер түзетуді тексереді.</div></div></div></foreignObject></g><g id="branch-06-group-2"><rect x="912" y="5517" width="383" height="58" rx="11" fill="#f3e7e0" stroke="#d7ae93" stroke-width="1.3"/><foreignObject x="912" y="5517" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Құжаттардың байланысы</div></div></div></foreignObject></g><g id="branch-06-group-3-leaf-1"><rect x="1430" y="5675" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e4c9b7" stroke-width="1.3"/><foreignObject x="1430" y="5675" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Кіріс деректері</div><div class="detail">1С-тен алынған деректер тауар қалдығын, өткізуді, төлемді және берешекті салыстыруға пайдаланылады.</div></div></div></foreignObject></g><g id="branch-06-group-3-leaf-2"><rect x="1430" y="5781" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e4c9b7" stroke-width="1.3"/><foreignObject x="1430" y="5781" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Шығыс құжаттары</div><div class="detail">Пакетке жарамды құжаттар кіреді. Жүктелмеген немесе түзетуді қажет ететін құжаттың себебі көрсетіледі.</div></div></div></foreignObject></g><g id="branch-06-group-3-leaf-3"><rect x="1430" y="5887" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#e4c9b7" stroke-width="1.3"/><foreignObject x="1430" y="5887" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Бөлек сақталатын дәлел</div><div class="detail">Қабылдау, қол қойылған жүкқұжат және төлем чегінің суретін Alasu-дан қарауға болады. 1С пакеті құжат деректерін тасымалдайды.</div></div></div></foreignObject></g><g id="branch-06-group-3"><rect x="912" y="5798" width="383" height="58" rx="11" fill="#f3e7e0" stroke="#d7ae93" stroke-width="1.3"/><foreignObject x="912" y="5798" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">1С-пен дерек алмасу</div></div></div></foreignObject></g><g id="branch-06"><rect x="466" y="5552" width="324" height="94" rx="15" fill="#AC561E" stroke="#AC561E" stroke-width="1.3"/><foreignObject x="466" y="5552" width="324" height="94"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card branch" style="color:#FFFFFF;--detail:#FFFFFF"><div class="card-inner"><div class="eyebrow">06</div><div class="card-title">Ақша, құжаттар және 1С</div></div></div></foreignObject></g><g id="branch-07-group-1-leaf-1"><rect x="1430" y="6059" width="790" height="77" rx="11" fill="#FFFFFF" stroke="#c1d1d9" stroke-width="1.3"/><foreignObject x="1430" y="6059" width="790" height="77"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Веб-интерфейс</div><div class="detail">React қолданбасы. Бет, мәзір және әрекеттер ағымдағы аккаунттың рұқсатына қарай ашылады.</div></div></div></foreignObject></g><g id="branch-07-group-1-leaf-2"><rect x="1430" y="6150" width="790" height="77" rx="11" fill="#FFFFFF" stroke="#c1d1d9" stroke-width="1.3"/><foreignObject x="1430" y="6150" width="790" height="77"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Мобильді интерфейс</div><div class="detail">React Native және Expo. SQLite кэші мен жіберу кезегі офлайн жұмысқа көмектеседі.</div></div></div></foreignObject></g><g id="branch-07-group-1"><rect x="912" y="6114" width="383" height="58" rx="11" fill="#e4ebee" stroke="#a1b9c6" stroke-width="1.3"/><foreignObject x="912" y="6114" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Клиенттік бөлік</div></div></div></foreignObject></g><g id="branch-07-group-2-leaf-1"><rect x="1430" y="6257" width="790" height="77" rx="11" fill="#FFFFFF" stroke="#c1d1d9" stroke-width="1.3"/><foreignObject x="1430" y="6257" width="790" height="77"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">API және бизнес логика</div><div class="detail">FastAPI тапсырыс, қойма, жеткізу, төлем және 1С алмасу модульдерін байланыстырады.</div></div></div></foreignObject></g><g id="branch-07-group-2-leaf-2"><rect x="1430" y="6348" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#c1d1d9" stroke-width="1.3"/><foreignObject x="1430" y="6348" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Деректер мен файлдар</div><div class="detail">PostgreSQL және PostGIS негізгі деректер мен координаттарды сақтайды. Фотолар файл қоймасында сақталады.</div></div></div></foreignObject></g><g id="branch-07-group-2-leaf-3"><rect x="1430" y="6454" width="790" height="77" rx="11" fill="#FFFFFF" stroke="#c1d1d9" stroke-width="1.3"/><foreignObject x="1430" y="6454" width="790" height="77"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Фондық жұмыс</div><div class="detail">Celery және Redis жоспарлы есеп, бақылау және фондық тапсырмаларды жүргізеді.</div></div></div></foreignObject></g><g id="branch-07-group-2"><rect x="912" y="6365" width="383" height="58" rx="11" fill="#e4ebee" stroke="#a1b9c6" stroke-width="1.3"/><foreignObject x="912" y="6365" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Сервер және сақтау</div></div></div></foreignObject></g><g id="branch-07-group-3-leaf-1"><rect x="1430" y="6561" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#c1d1d9" stroke-width="1.3"/><foreignObject x="1430" y="6561" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Рөл мен әрекет</div><div class="detail">Бір рөл мәзірді көруі, екіншісі сол бетте деректі өңдеуі мүмкін. Мысалы, бас директор жеткізу тізімін көреді, логист рейс құра алады.</div></div></div></foreignObject></g><g id="branch-07-group-3-leaf-2"><rect x="1430" y="6667" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#c1d1d9" stroke-width="1.3"/><foreignObject x="1430" y="6667" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Дерек ауқымы мен журнал</div><div class="detail">Сервер рұқсат пен дерек ауқымын тексереді. Маңызды әрекет журналға жазылады, ал кейбір операцияны екінші адам растайды.</div></div></div></foreignObject></g><g id="branch-07-group-3"><rect x="912" y="6631" width="383" height="58" rx="11" fill="#e4ebee" stroke="#a1b9c6" stroke-width="1.3"/><foreignObject x="912" y="6631" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Рұқсат және бақылау</div></div></div></foreignObject></g><g id="branch-07"><rect x="466" y="6362" width="324" height="94" rx="15" fill="#3C6E88" stroke="#3C6E88" stroke-width="1.3"/><foreignObject x="466" y="6362" width="324" height="94"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card branch" style="color:#FFFFFF;--detail:#FFFFFF"><div class="card-inner"><div class="eyebrow">07</div><div class="card-title">Техникалық архитектура</div></div></div></foreignObject></g><g id="branch-08-group-1-leaf-1"><rect x="1430" y="6839" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cad3c2" stroke-width="1.3"/><foreignObject x="1430" y="6839" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Сынақ кезеңі</div><div class="detail">Қосымша барлық қызметкердің телефонына таратылған жоқ. Қоймадан 1С пакетін жасауға дейінгі негізгі сценарий автоматты түрде тексерілген.</div></div></div></foreignObject></g><g id="branch-08-group-1-leaf-2"><rect x="1430" y="6945" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cad3c2" stroke-width="1.3"/><foreignObject x="1430" y="6945" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Тексеру нәтижесі</div><div class="detail">Іріктелген 349 автоматты тест сәтті өтті: серверде 172, вебте 67 және қосымшада 110. Нақты телефон және сынақ 1С базасына импорт бөлек тексеріледі.</div></div></div></foreignObject></g><g id="branch-08-group-1"><rect x="912" y="6909" width="383" height="58" rx="11" fill="#e8ece4" stroke="#afbda4" stroke-width="1.3"/><foreignObject x="912" y="6909" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Қазіргі жағдай</div></div></div></foreignObject></g><g id="branch-08-group-2-leaf-1"><rect x="1430" y="7067" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cad3c2" stroke-width="1.3"/><foreignObject x="1430" y="7067" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Жауапты: __________</div><div class="detail">Бір тапсырысты телефоннан өткізу. GPS, фото, үзіліп-қайта қосылған байланыс және деректің серверге жетуін бақылау.</div></div></div></foreignObject></g><g id="branch-08-group-2-leaf-2"><rect x="1430" y="7173" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cad3c2" stroke-width="1.3"/><foreignObject x="1430" y="7173" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Құжатпен растау</div><div class="detail">Тапсырыс, тиеу тізімі, жүкқұжат және 1С құжатының нөмірлерін жазып, тауар саны мен төлемді салыстыру.</div></div></div></foreignObject></g><g id="branch-08-group-2"><rect x="912" y="7137" width="383" height="58" rx="11" fill="#e8ece4" stroke="#afbda4" stroke-width="1.3"/><foreignObject x="912" y="7137" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">1-адам · процесті сынау</div></div></div></foreignObject></g><g id="branch-08-group-3-leaf-1"><rect x="1430" y="7295" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cad3c2" stroke-width="1.3"/><foreignObject x="1430" y="7295" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Жауапты: __________</div><div class="detail">Ортақ телефондағы тапсырыс кэшін қызметкер бойынша оқшаулау. Аккаунт өзгергенде бұрынғы адамның тапсырыстары көрінбеуі керек.</div></div></div></foreignObject></g><g id="branch-08-group-3-leaf-2"><rect x="1430" y="7401" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cad3c2" stroke-width="1.3"/><foreignObject x="1430" y="7401" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">1С экспорты</div><div class="detail">Төлем түсіндірмесінде тиынға дейінгі дәлдікті сақтау. Мысалы, 1 234,51 ₸ сомасы бүтін санға айналмауы керек.</div></div></div></foreignObject></g><g id="branch-08-group-3-leaf-3"><rect x="1430" y="7507" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cad3c2" stroke-width="1.3"/><foreignObject x="1430" y="7507" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Windows сынақ ортасы</div><div class="detail">Дерекқорды жаңарту конфигурациясының кодталуын түзетіп, негізгі тармақтағы миграцияны қайта тексеру.</div></div></div></foreignObject></g><g id="branch-08-group-3"><rect x="912" y="7418" width="383" height="58" rx="11" fill="#e8ece4" stroke="#afbda4" stroke-width="1.3"/><foreignObject x="912" y="7418" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">2-адам · ақауды түзету</div></div></div></foreignObject></g><g id="branch-08-group-4-leaf-1"><rect x="1430" y="7629" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cad3c2" stroke-width="1.3"/><foreignObject x="1430" y="7629" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Жұмыс жазбасы</div><div class="detail">Әр тармақта жауапты адамды, күйді және дәлелді белгілеу: «Кезекте», «Жұмыста», «Тексерілді».</div></div></div></foreignObject></g><g id="branch-08-group-4-leaf-2"><rect x="1430" y="7735" width="790" height="92" rx="11" fill="#FFFFFF" stroke="#cad3c2" stroke-width="1.3"/><foreignObject x="1430" y="7735" width="790" height="92"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card leaf" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Өту шарты</div><div class="detail">Тауар саны сәйкес, ақша салыстырылған, құжат нөмірлері табылған және сынақ 1С базасында импорт нәтижесі жазылған.</div></div></div></foreignObject></g><g id="branch-08-group-4"><rect x="912" y="7699" width="383" height="58" rx="11" fill="#e8ece4" stroke="#afbda4" stroke-width="1.3"/><foreignObject x="912" y="7699" width="383" height="58"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card group" style="color:#172B45;--detail:#4C5F79"><div class="card-inner"><div class="card-title">Бірге қабылдау</div></div></div></foreignObject></g><g id="branch-08"><rect x="466" y="7286" width="324" height="94" rx="15" fill="#587641" stroke="#587641" stroke-width="1.3"/><foreignObject x="466" y="7286" width="324" height="94"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card branch" style="color:#FFFFFF;--detail:#FFFFFF"><div class="card-inner"><div class="eyebrow">08</div><div class="card-title">Сынақ және бірлескен жұмыс</div></div></div></foreignObject></g><g id="root"><rect x="64" y="3899" width="310" height="155" rx="15" fill="#203758" stroke="#203758" stroke-width="1.3"/><foreignObject x="64" y="3899" width="310" height="155"><div xmlns="http://www.w3.org/1999/xhtml" class="map-card root" style="color:#FFFFFF;--detail:#FFFFFF"><div class="card-inner"><div class="eyebrow">ЖОБАНЫҢ ТОЛЫҚ КАРТАСЫ</div><div class="card-title">Alasu</div><div class="detail">Веб-сайт · мобильді қосымша · 1С</div></div></div></foreignObject></g></svg></div>
+  </main>
+  <main id="cycle-view" hidden>
+    <div class="cycle-content">
+  <h2>Тапсырыстан 1С-ке дейін</h2>
+  <p class="cycle-intro">Кезеңді таңдаңыз: кім орындайтыны, қай жүйені қолданатыны және жұмыс кімге өтетіні көрінеді.</p>
+  <div class="cycle-layout">
+    <figure class="cycle-diagram" aria-label="Alasu жұмысының сегіз кезеңнен тұратын айналымы">
+      <div class="ring">
+        <svg class="connections" viewBox="0 0 960 672" aria-hidden="true">
+          <defs>
+            <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+              <path d="M0 0L8 4L0 8Z" fill="#7188a1"/>
+            </marker>
+            <marker id="feedback-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+              <path d="M0 0L8 4L0 8Z" fill="#8864ae"/>
+            </marker>
+          </defs>
+          <path class="spoke" data-spoke="visit" d="M480 248V115"/>
+          <path class="spoke" data-spoke="order" d="M574 263L660 186"/>
+          <path class="spoke" data-spoke="dispatch" d="M600 329H753"/>
+          <path class="spoke" data-spoke="warehouse" d="M574 396L660 476"/>
+          <path class="spoke" data-spoke="delivery" d="M480 410V549"/>
+          <path class="spoke" data-spoke="proof" d="M386 396L300 476"/>
+          <path class="spoke" data-spoke="cash" d="M360 329H207"/>
+          <path class="spoke" data-spoke="accounting" d="M386 263L300 186"/>
+          <g marker-end="url(#arrow)">
+            <path class="route" d="M572 69C606 73 626 91 642 109"/>
+            <path class="route" d="M793 188C820 211 839 243 843 278"/>
+            <path class="route" d="M843 377C838 413 824 445 799 470"/>
+            <path class="route" d="M645 540C620 564 597 581 575 590"/>
+            <path class="route" d="M388 590C355 582 336 564 318 542"/>
+            <path class="route" d="M162 475C134 449 119 414 115 380"/>
+            <path class="route" d="M115 281C120 245 134 216 161 192"/>
+          </g>
+          <path class="route feedback" d="M315 125C336 100 357 81 385 71" marker-end="url(#feedback-arrow)"/>
+        </svg>
+        <button type="button" class="stage" style="--x:50%;--y:9.97%" data-step="visit" aria-controls="stage-detail" aria-pressed="false">
+          <span class="stage-top"><span class="number">1</span><span class="channel">Мобильді қосымша</span></span><span class="stage-name">Дүкенге бару</span>
+        </button>
+        <button type="button" class="stage web" style="--x:76.77%;--y:21.13%" data-step="order" aria-controls="stage-detail" aria-pressed="false">
+          <span class="stage-top"><span class="number">2</span><span class="channel">Жүйе және веб</span></span><span class="stage-name">Тапсырысты қабылдау</span>
+        </button>
+        <button type="button" class="stage web" style="--x:88.02%;--y:48.96%" data-step="dispatch" aria-controls="stage-detail" aria-pressed="false">
+          <span class="stage-top"><span class="number">3</span><span class="channel">Веб</span></span><span class="stage-name">Рейсті жоспарлау</span>
+        </button>
+        <button type="button" class="stage" style="--x:76.77%;--y:77.53%" data-step="warehouse" aria-controls="stage-detail" aria-pressed="false">
+          <span class="stage-top"><span class="number">4</span><span class="channel">Мобильді қосымша</span></span><span class="stage-name">Қоймадан тауар беру</span>
+        </button>
+        <button type="button" class="stage" style="--x:50%;--y:88.69%" data-step="delivery" aria-controls="stage-detail" aria-pressed="false">
+          <span class="stage-top"><span class="number">5</span><span class="channel">Мобильді қосымша</span></span><span class="stage-name">Жеткізу және қол қою</span>
+        </button>
+        <button type="button" class="stage cash" style="--x:23.23%;--y:77.53%" data-step="proof" aria-controls="stage-detail" aria-pressed="false">
+          <span class="stage-top"><span class="number">6</span><span class="channel">Мобильді қосымша</span></span><span class="stage-name">Төлем және түбіртек</span>
+        </button>
+        <button type="button" class="stage cash" style="--x:11.98%;--y:48.96%" data-step="cash" aria-controls="stage-detail" aria-pressed="false">
+          <span class="stage-top"><span class="number">7</span><span class="channel">Веб</span></span><span class="stage-name">Ақшаны салыстыру</span>
+        </button>
+        <button type="button" class="stage onec" style="--x:23.23%;--y:21.13%" data-step="accounting" aria-controls="stage-detail" aria-pressed="false">
+          <span class="stage-top"><span class="number">8</span><span class="channel">Веб және 1С</span></span><span class="stage-name">1С-ке енгізу және есеп</span>
+        </button>
+        <button type="button" class="hub" data-step="control" aria-controls="stage-detail" aria-pressed="true">
+          <strong>Басқару<br>және бақылау</strong>
+          <span>Тауар · ақша · құжат</span>
+        </button>
+      </div>
+      <figcaption>
+        <span class="key"><span class="key-line" aria-hidden="true"></span>Жұмыс реті</span>
+        <span class="key"><span class="key-line check" aria-hidden="true"></span>Бақылау байланысы</span>
+        <span class="key"><span class="key-line loop" aria-hidden="true"></span>Есеп келесі жоспарға негіз болады</span>
+      </figcaption>
+    </figure>
+    <section class="cycle-detail" id="stage-detail" aria-labelledby="detail-title">
+      <div id="stage-inputs" class="stage-inputs" hidden>
+        <div class="input-nodes">
+          <a class="input-node" id="role-link" href="#map" title="Рөлді картадан көру">
+            <span>Орындайтын рөл</span><strong id="role-label"></strong>
+          </a>
+          <a class="input-node" id="platform-link" href="#map" title="Жүйені картадан көру">
+            <span>Қолданатын жүйе</span><strong id="platform-label"></strong>
+          </a>
+        </div>
+        <svg class="input-lines" viewBox="0 0 100 23" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M25 0 V5 Q25 12 32 12 H50 M75 0 V5 Q75 12 68 12 H50 V22"/>
+        </svg>
+      </div>
+      <div class="stage-heading">
+        <div>
+          <h3 id="detail-title" aria-live="polite">Басқару және бақылау</h3>
+          <p id="stage-result" class="stage-result" hidden></p>
+        </div>
+        <button type="button" class="clear-stage" id="clear-stage" hidden>Жабу</button>
+      </div>
+      <section id="stage-handoffs" class="handoff-section" hidden>
+        <h4>Келесі әрекет және жауапты</h4>
+        <ul class="module-tree" id="handoff-tree"></ul>
+      </section>
+      <section id="stage-modules" class="module-section" hidden>
+        <h4>Осы кезеңнің модульдері</h4>
+        <ul class="module-tree" id="module-tree"></ul>
+        <a class="map-reference" id="map-reference" href="#map">Тармақты картадан көру →</a>
+      </section>
+      <details id="stage-action" class="stage-action" hidden>
+        <summary>Жұмыс барысы</summary><p id="stage-action-text"></p>
+      </details>
+      <dl id="control-details">
+        <div><dt>Жауапты</dt><dd id="detail-owner">Басшылық пен бөлім жетекшілері, өз рұқсатына сай.</dd></div>
+        <div><dt>Жұмыс орны</dt><dd id="detail-channel">Alasu вебіндегі сату, қойма, логистика және қаржы бөлімдері.</dd></div>
+        <div><dt>Не істейді?</dt><dd id="detail-action">Тапсырыс пен рейстің күйін, қойма қалдығын, алынған ақшаны және 1С пакетін бақылайды.</dd></div>
+        <div><dt>Нәтиже</dt><dd id="detail-output">Тауар саны, төлем сомасы және құжат нөмірлері салыстырылады. Ауытқу табылса, тиісті кезеңді ашып қарайды.</dd></div>
+      </dl>
+    </section>
+  </div>
+
+    </div>
+  </main>
+  <main id="tasks-view" hidden>
+    <div class="task-content">
+      <div class="task-header">
+        <h2>Тапсырмалар</h2>
+        <a class="editor-link" id="new-task" hidden>GitHub-та тапсырма қосу ↗</a>
+      </div>
+      <p id="task-status" class="task-note" aria-live="polite"></p>
+      <ul id="task-list" class="task-list" aria-label="GitHub тапсырмалары" hidden></ul>
+      <p id="task-version" class="task-note" hidden></p>
+      <section class="task-plan">
+        <h3>Жоба картасындағы тексеру жоспары</h3>
+        <a class="map-reference" href="#map/branch-08">Сынақ және бірлескен жұмыс →</a>
+      </section>
+    </div>
+  </main>
+</div>
+<script>
+  const viewport = document.getElementById('viewport');
+  const scene = document.getElementById('scene');
+  const diagram = document.getElementById('diagram');
+  const zoomValue = document.getElementById('zoom-value');
+  const toggleAll = document.getElementById('toggle-all');
+  const branchButtons = [...document.querySelectorAll('[data-branch]')];
+  const nodes = new Map();
+  const svgNamespace = 'http://www.w3.org/2000/svg';
+
+  diagram.querySelectorAll(':scope > path').forEach(path => path.remove());
+  const edges = document.createElementNS(svgNamespace, 'g');
+  edges.setAttribute('aria-hidden', 'true');
+  diagram.insertBefore(edges, diagram.querySelector('g'));
+
+  for (const element of diagram.querySelectorAll(':scope > g[id]')) {
+    const rect = element.querySelector('rect');
+    const card = element.querySelector('.map-card');
+    const originalY = Number(rect.getAttribute('y'));
+    nodes.set(element.id, {
+      element, rect, card, originalY, y: originalY,
+      x: Number(rect.getAttribute('x')),
+      width: Number(rect.getAttribute('width')),
+      height: Number(rect.getAttribute('height')),
+      children: [], visible: false,
+    });
+  }
+
+  const root = nodes.get('root');
+  for (const [id, node] of nodes) {
+    if (node === root) continue;
+    const parentId = id.replace(/-(?:group|leaf)-\d+$/, '');
+    node.parent = parentId === id ? root : nodes.get(parentId);
+    node.parent.children.push(node);
+    const branchId = id.split('-').slice(0, 2).join('-');
+    const color = nodes.get(branchId).rect.getAttribute('fill');
+    node.edge = document.createElementNS(svgNamespace, 'path');
+    node.edge.setAttribute('fill', 'none');
+    node.edge.setAttribute('stroke', color);
+    node.edge.setAttribute('stroke-opacity', '.72');
+    node.edge.setAttribute('stroke-width', node.parent === root ? '3.2' : node.children.length ? '2' : '1.5');
+    edges.append(node.edge);
+  }
+
+  // Opening a main branch shows its details. Individual groups can then be folded independently.
+  const expandable = [...nodes.values()].filter(node => node !== root && node.children.length > 0);
+  const groups = expandable.filter(node => node.parent !== root);
+  const expanded = new Set(groups);
+  let active = null;
+  let scale = 1;
+  let x = 0;
+  let y = 0;
+  let drag = null;
+
+  function render() {
+    scene.style.transform = 'translate(' + x + 'px, ' + y + 'px) scale(' + scale + ')';
+    zoomValue.value = Math.round(scale * 100) + '%';
+  }
+
+  function packNode(node, top) {
+    node.visible = true;
+    const children = node === root || expanded.has(node) ? node.children : [];
+    const gap = node === root ? 32 : node.parent === root ? 24 : 14;
+    let bottom = top;
+    for (const child of children) {
+      bottom = packNode(child, bottom) + gap;
+    }
+    const height = Math.max(node.height, bottom - top - gap);
+    node.y = top + (height - node.height) / 2;
+    return top + height;
+  }
+
+  function updateLayout() {
+    for (const node of nodes.values()) node.visible = false;
+    const bottom = packNode(root, 42);
+    let right = 0;
+    for (const node of nodes.values()) {
+      node.element.classList.toggle('fold-hidden', !node.visible);
+      if (node.edge) node.edge.classList.toggle('fold-hidden', !node.visible);
+      if (node.button) {
+        const open = expanded.has(node);
+        node.button.setAttribute('aria-expanded', String(open));
+        node.indicator.textContent = open ? '−' : '+';
+      }
+      if (!node.visible) continue;
+      node.element.setAttribute('transform', 'translate(0 ' + (node.y - node.originalY) + ')');
+      right = Math.max(right, node.x + node.width);
+      if (!node.edge) continue;
+      const from = node.parent;
+      const startX = from.x + from.width;
+      const startY = from.y + from.height / 2;
+      const endY = node.y + node.height / 2;
+      const midX = (startX + node.x) / 2;
+      node.edge.setAttribute('d', 'M' + startX + ',' + startY + ' C' + midX + ',' + startY
+        + ' ' + midX + ',' + endY + ' ' + node.x + ',' + endY);
+    }
+    diagram.setAttribute('width', String(right + 48));
+    diagram.setAttribute('height', String(bottom + 42));
+    diagram.setAttribute('viewBox', '0 0 ' + (right + 48) + ' ' + (bottom + 42));
+    toggleAll.textContent = root.children.some(node => expanded.has(node)) ? 'Барлығын жабу' : 'Барлығын ашу';
+  }
+
+  function focusBranch(id) {
+    while (id && !nodes.get(id)?.visible) id = nodes.get(id)?.parent?.element.id ?? null;
+    active = id;
+    const visible = [...nodes.values()].filter(node => node.visible &&
+      (!id || node.element.id === id || node.element.id.startsWith(id + '-')));
+    const left = Math.min(...visible.map(node => node.x)) - 32;
+    const top = Math.min(...visible.map(node => node.y)) - 25;
+    const right = Math.max(...visible.map(node => node.x + node.width)) + 32;
+    const bottom = Math.max(...visible.map(node => node.y + node.height)) + 25;
+    const width = viewport.clientWidth;
+    const height = viewport.clientHeight;
+    scale = Math.min(1, Math.max(.03, Math.min((width - 12) / (right - left), (height - 12) / (bottom - top))));
+    x = (width - (right - left) * scale) / 2 - left * scale;
+    y = (height - (bottom - top) * scale) / 2 - top * scale;
+    const sectionId = id?.match(/^branch-\d{2}/)?.[0];
+    for (const button of branchButtons) button.setAttribute('aria-pressed', String(button.dataset.branch === sectionId));
+    render();
+  }
+
+  function toggleNode(node) {
+    const opening = !expanded.has(node);
+    const previousY = node.y;
+    if (opening) expanded.add(node);
+    else expanded.delete(node);
+    updateLayout();
+    if (node.parent === root && opening) {
+      focusBranch(node.element.id);
+    } else if (!root.children.some(branch => expanded.has(branch))) {
+      focusBranch(null);
+    } else {
+      y += (previousY - node.y) * scale;
+      render();
+    }
+  }
+
+  for (const node of expandable) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'node-toggle';
+    const indicator = document.createElement('span');
+    indicator.className = 'fold-icon';
+    indicator.setAttribute('aria-hidden', 'true');
+    button.append(node.card.querySelector('.card-inner'), indicator);
+    node.card.append(button);
+    button.addEventListener('click', () => toggleNode(node));
+    node.button = button;
+    node.indicator = indicator;
+  }
+
+  for (const button of branchButtons) {
+    button.addEventListener('click', () => {
+      expanded.add(nodes.get(button.dataset.branch));
+      updateLayout();
+      focusBranch(button.dataset.branch);
+    });
+  }
+
+  toggleAll.addEventListener('click', () => {
+    const collapse = root.children.some(node => expanded.has(node));
+    expanded.clear();
+    for (const node of collapse ? groups : expandable) expanded.add(node);
+    updateLayout();
+    focusBranch(null);
+  });
+
+  function zoomBy(factor, px = viewport.clientWidth / 2, py = viewport.clientHeight / 2) {
+    const next = Math.max(.03, Math.min(2, scale * factor));
+    const change = next / scale;
+    x = px - (px - x) * change;
+    y = py - (py - y) * change;
+    scale = next;
+    render();
+  }
+
+  document.getElementById('overview').addEventListener('click', () => focusBranch(null));
+  document.getElementById('zoom-in').addEventListener('click', () => zoomBy(1.22));
+  document.getElementById('zoom-out').addEventListener('click', () => zoomBy(1 / 1.22));
+  viewport.addEventListener('wheel', event => {
+    event.preventDefault();
+    const frame = viewport.getBoundingClientRect();
+    const factor = Math.exp(Math.max(-280, Math.min(280, -event.deltaY)) * .0017);
+    zoomBy(factor, event.clientX - frame.left, event.clientY - frame.top);
+  }, { passive: false });
+  viewport.addEventListener('pointerdown', event => {
+    if (!event.isPrimary || event.button !== 0 || event.target.closest('.node-toggle')) return;
+    drag = { id: event.pointerId, px: event.clientX, py: event.clientY, x, y };
+    viewport.setPointerCapture(event.pointerId);
+    viewport.classList.add('dragging');
+  });
+  viewport.addEventListener('pointermove', event => {
+    if (!drag || drag.id !== event.pointerId) return;
+    x = drag.x + event.clientX - drag.px;
+    y = drag.y + event.clientY - drag.py;
+    render();
+  });
+  function endDrag() {
+    drag = null;
+    viewport.classList.remove('dragging');
+  }
+  viewport.addEventListener('pointerup', endDrag);
+  viewport.addEventListener('pointercancel', endDrag);
+  viewport.addEventListener('lostpointercapture', endDrag);
+  viewport.addEventListener('keydown', event => {
+    if (event.target.closest('.node-toggle')) return;
+    const moves = { ArrowLeft: [75, 0], ArrowRight: [-75, 0], ArrowUp: [0, 75], ArrowDown: [0, -75] };
+    if (moves[event.key]) {
+      event.preventDefault();
+      x += moves[event.key][0];
+      y += moves[event.key][1];
+      render();
+    } else if (event.key === '+' || event.key === '=') {
+      event.preventDefault();
+      zoomBy(1.22);
+    } else if (event.key === '-') {
+      event.preventDefault();
+      zoomBy(1 / 1.22);
+    }
+  });
+  const requestedBranch = new URLSearchParams(location.search).get('branch');
+  const requestedNode = nodes.get(requestedBranch);
+  if (requestedBranch === 'all') {
+    for (const node of expandable) expanded.add(node);
+  } else if (requestedNode?.parent === root) {
+    expanded.add(requestedNode);
+    active = requestedBranch;
+  }
+  updateLayout();
+  focusBranch(active);
+  new ResizeObserver(() => { if (!viewport.hidden) focusBranch(active); }).observe(viewport);
+
+  const details = {
+    visit: {
+      title: 'Дүкенге бару',
+      owner: 'Сауда өкілі.',
+      channel: 'Мобильді қосымша.',
+      action: 'Дүкенге барғанын белгілейді, орналасқан жерін растайды және фото түсіреді. Қажет болса жабдықты сканерлейді немесе жаңа сауда нүктесін тіркейді.',
+      output: 'Тіркелген сапар, фото және дүкенге рәсімделген тапсырыс.',
+    },
+    order: {
+      title: 'Тапсырысты қабылдау',
+      owner: 'Alasu жүйесі және жеткізу логисі.',
+      channel: 'Alasu вебіндегі «Жеткізуге дайын тапсырыстар».',
+      action: 'Жүйе бағаны, берешек шегін және өзге шектеулерді тексереді. Талапқа сай тапсырыс жеткізу тізіміне түседі.',
+      output: 'Рейске қоюға дайын тапсырыс.',
+    },
+    dispatch: {
+      title: 'Рейсті жоспарлау',
+      owner: 'Жеткізу логисі.',
+      channel: 'Alasu вебіндегі логистика бөлімі.',
+      action: 'Тапсырыстарды таңдап, жөнелту қоймасын, көлікті, экспедиторды және аялдамалар ретін белгілейді.',
+      output: 'Жоспарланған рейс және қоймаға берілетін тиеу тізімі.',
+    },
+    warehouse: {
+      title: 'Қоймадан тауар беру',
+      owner: 'Қоймашы мен экспедитор.',
+      channel: 'Мобильді қосымшаның қойма және жеткізу бөлімдері.',
+      action: 'Қоймашы тауарды тізіммен жинап, нақты санын белгілеп береді. Экспедитор оны санап, қабылдағанын растайды.',
+      output: 'Тауар қабылданғанда қойма қалдығы азаяды және жүкқұжат жасалады.',
+    },
+    delivery: {
+      title: 'Жеткізу және қол қою',
+      owner: 'Экспедитор және дүкендегі қабылдаушы.',
+      channel: 'Мобильді қосымшаның жеткізу бөлімі.',
+      action: 'Экспедитор нақты жеткізілген санды белгілейді, қажет болса қол қойылған жүкқұжатты суретке түсіреді. Қайтқан тауарды қойма қабылдайды.',
+      output: 'Жеткізу нәтижесі, жүкқұжат және қажет болса қайтарым жазбасы.',
+    },
+    proof: {
+      title: 'Төлем және түбіртек',
+      owner: 'Экспедитор.',
+      channel: 'Мобильді қосымшаның төлем бөлімі.',
+      action: 'Қолма-қол ақшаны, аударымды және Kaspi QR төлемін бөлек тіркейді. Аударым немесе QR төлемінің чек фотосын қоса алады.',
+      output: 'Сома, төлем тәсілі және тіркелген төлем дәлелі.',
+    },
+    cash: {
+      title: 'Ақшаны салыстыру',
+      owner: 'Кассир мен бухгалтер.',
+      channel: 'Alasu вебіндегі касса және қаржы бөлімдері.',
+      action: 'Кассир өткізілген қолма-қол ақшаны санап растайды. Бухгалтер аударым мен QR төлемін банк немесе Kaspi көшірмесімен салыстырады.',
+      output: 'Кассалық кіріс ордері және қолма-қолсыз төлемнің расталған күйі.',
+    },
+    accounting: {
+      title: '1С-ке енгізу және есеп',
+      owner: 'Бухгалтер және 1С-ке жүктеуге құқығы бар қызметкер.',
+      channel: 'Alasu вебіндегі 1С пакеті және 1С бухгалтериясы.',
+      action: 'Бухгалтер құжаттар пакетін дайындайды. Уәкілетті қызметкер оны 1С-ке қолмен жүктеп, нәтижесін Alasu-да белгілейді.',
+      output: 'Импорт нәтижесі мен 1С құжат нөмірі. Осы есеп келесі жоспарға негіз болады.',
+    },
+    control: {
+      title: 'Басқару және бақылау',
+      owner: 'Басшылық пен бөлім жетекшілері, өз рұқсатына сай.',
+      channel: 'Alasu вебіндегі сату, қойма, логистика және қаржы бөлімдері.',
+      action: 'Тапсырыс пен рейстің күйін, қойма қалдығын, алынған ақшаны және 1С пакетін бақылайды.',
+      output: 'Тауар саны, төлем сомасы және құжат нөмірлері салыстырылады. Ауытқу табылса, тиісті кезеңді ашып қарайды.',
+    },
+  };
+
+  const cycleView = document.getElementById('cycle-view');
+  const mapSidebar = document.getElementById('map-sidebar');
+  const mapTools = document.getElementById('map-tools');
+  const navLinks = document.querySelectorAll('[data-view-link]');
+  const cycleStages = document.querySelectorAll('[data-step]');
+  const cycleSpokes = document.querySelectorAll('[data-spoke]');
+  const moduleSection = document.getElementById('stage-modules');
+  const moduleTree = document.getElementById('module-tree');
+  const mapReference = document.getElementById('map-reference');
+  const clearStage = document.getElementById('clear-stage');
+  const stageDetail = document.getElementById('stage-detail');
+  const stageInputs = document.getElementById('stage-inputs');
+  const roleLink = document.getElementById('role-link');
+  const roleLabel = document.getElementById('role-label');
+  const platformLink = document.getElementById('platform-link');
+  const platformLabel = document.getElementById('platform-label');
+  const handoffSection = document.getElementById('stage-handoffs');
+  const handoffTree = document.getElementById('handoff-tree');
+  const stageResult = document.getElementById('stage-result');
+  const stageAction = document.getElementById('stage-action');
+  const stageActionText = document.getElementById('stage-action-text');
+  const controlDetails = document.getElementById('control-details');
+  const detailFields = ['title', 'owner', 'channel', 'action', 'output'];
+  const stageModules = {
+    visit: {
+      target: 'branch-05-group-1',
+      nodes: ['branch-05-group-1-leaf-1', 'branch-05-group-1-leaf-2', 'branch-05-group-2-leaf-1'],
+    },
+    order: {
+      target: 'branch-05-group-2',
+      nodes: ['branch-05-group-2-leaf-1', 'branch-05-group-2-leaf-2', 'branch-03-group-1-leaf-2'],
+    },
+    dispatch: {
+      target: 'branch-05-group-3',
+      nodes: ['branch-05-group-3-leaf-1', 'branch-03-group-2-leaf-2', 'branch-04-group-3-leaf-1'],
+    },
+    warehouse: {
+      target: 'branch-05-group-4',
+      nodes: ['branch-05-group-4-leaf-1', 'branch-05-group-4-leaf-2', 'branch-03-group-2-leaf-1'],
+    },
+    delivery: {
+      target: 'branch-05-group-5-leaf-1',
+      nodes: ['branch-04-group-2-leaf-1', 'branch-05-group-5-leaf-1', 'branch-04-group-2-leaf-2'],
+    },
+    proof: {
+      target: 'branch-05-group-5-leaf-2',
+      nodes: ['branch-05-group-5-leaf-2', 'branch-06-group-1-leaf-1', 'branch-06-group-1-leaf-2'],
+    },
+    cash: {
+      target: 'branch-06-group-1',
+      nodes: ['branch-06-group-1-leaf-1', 'branch-06-group-1-leaf-2', 'branch-06-group-2-leaf-1'],
+    },
+    accounting: {
+      target: 'branch-05-group-7',
+      nodes: ['branch-05-group-7-leaf-1', 'branch-06-group-3-leaf-2', 'branch-06-group-3-leaf-3'],
+    },
+  };
+
+  const stageConnections = {
+    visit: {
+      role: 'branch-02-group-2-leaf-2',
+      platform: { label: 'Мобильді қосымша · Далалық жұмыс', target: 'branch-04-group-1' },
+      handoffs: [
+        { condition: 'Тапсырыс рәсімделсе', owner: 'Alasu жүйесі → Жеткізу логисі', record: 'Сақталған тапсырысты тексеріп, талапқа сай болса, логистің жеткізу тізіміне шығарады.', next: 'order' },
+      ],
+    },
+    order: {
+      role: 'branch-02-group-5-leaf-1',
+      platform: { label: 'Alasu жүйесі және веб · Логистика', target: 'branch-03-group-2-leaf-2' },
+      handoffs: [
+        { condition: 'Жүйелік тексерістен өткенде', owner: 'Жеткізу логисі', record: 'Жеткізуге дайын тапсырысты көріп, оны рейске қосады.', next: 'dispatch' },
+      ],
+    },
+    dispatch: {
+      role: 'branch-02-group-5-leaf-1',
+      platform: { label: 'Веб · Логистика', target: 'branch-03-group-2-leaf-2' },
+      handoffs: [
+        { condition: 'Рейс құрылғанда', owner: 'Қоймашы', record: 'Тиеу тізімі қоймашыға түседі. Қай экспедитор мен көлік тағайындалғаны тізімде көрсетіледі.', next: 'warehouse' },
+      ],
+    },
+    warehouse: {
+      role: 'branch-02-group-4-leaf-1',
+      platform: { label: 'Мобильді қосымша · Қойма және жеткізу', target: 'branch-04-group-3' },
+      handoffs: [
+        { condition: 'Тауарды қабылдағаннан кейін', owner: 'Экспедитор', record: 'Қабылданған тауарды жүкқұжат бойынша дүкенге жеткізеді.', next: 'delivery' },
+      ],
+    },
+    delivery: {
+      role: 'branch-02-group-5-leaf-1',
+      platform: { label: 'Мобильді қосымша · Жеткізу', target: 'branch-04-group-2' },
+      handoffs: [
+        { condition: 'Дүкенде төлем жасалса', owner: 'Экспедитор', record: 'Төлем сомасы мен тәсілін тіркейді, қажет болса чек фотосын қосады.', next: 'proof' },
+        { condition: 'Тауар кері қайтса', owner: 'Қоймашы', record: 'Рейс қайтарымын қабылдап, жарамды тауар мен ақаулы тауарды бөлек тіркейді.', map: 'branch-04-group-3-leaf-2' },
+      ],
+    },
+    proof: {
+      role: 'branch-02-group-5-leaf-1',
+      platform: { label: 'Мобильді қосымша · Жеткізудегі төлем', target: 'branch-04-group-2' },
+      handoffs: [
+        { condition: 'Қолма-қол төлем', owner: 'Кассир', record: 'Рейстен кейін өткізілген қолма-қол ақшаны қабылдап, нақты соманы салыстырады.', next: 'cash' },
+        { condition: 'Аударым немесе Kaspi QR', owner: 'Бухгалтер', record: 'Alasu-дағы төлем жазбасын банк немесе Kaspi көшірмесімен салыстырады.', next: 'cash' },
+      ],
+    },
+    cash: {
+      role: 'branch-02-group-3-leaf-2',
+      platform: { label: 'Веб · Касса және қаржы', target: 'branch-03-group-3-leaf-1' },
+      handoffs: [
+        { condition: 'Қолма-қол ақша салыстырылса', owner: 'Қаржы директоры немесе бас бухгалтер', record: 'Екінші адам кіріс кассалық ордерін бекітеді. Бекітілген ордер 1С пакетіне түседі.', next: 'accounting' },
+        { condition: 'Аударым немесе Kaspi QR расталса', owner: 'Бухгалтер', record: 'Қолма-қолсыз түсімді 1С-те банк көшірмесі негізінде тіркейді.', next: 'accounting' },
+      ],
+    },
+    accounting: {
+      role: 'branch-02-group-3-leaf-2',
+      platform: { label: 'Alasu вебі · 1С бухгалтериясы', target: 'branch-01-group-3-leaf-1' },
+      handoffs: [
+        { condition: 'Импорт нәтижесі белгіленгенде', owner: 'Басшылық пен бөлім жетекшілері', record: 'Тауар, ақша және құжаттың сәйкестігін тексеріп, нәтижені келесі жоспарға пайдаланады.', next: 'control' },
+      ],
+    },
+  };
+
+  function renderConnections(key) {
+    const connection = stageConnections[key];
+    stageInputs.hidden = !connection;
+    handoffSection.hidden = !connection;
+    stageResult.hidden = !connection;
+    stageAction.hidden = !connection;
+    stageAction.open = false;
+    controlDetails.hidden = Boolean(connection);
+    handoffTree.replaceChildren();
+    if (!connection) return;
+
+    roleLink.href = '#map/' + connection.role;
+    roleLabel.textContent = details[key].owner.replace(/\.$/, '');
+    platformLink.href = '#map/' + connection.platform.target;
+    platformLabel.textContent = connection.platform.label;
+    stageResult.textContent = details[key].output;
+    stageActionText.textContent = details[key].action;
+
+    for (const handoff of connection.handoffs) {
+      const item = document.createElement('li');
+      const node = document.createElement(handoff.next ? 'button' : 'a');
+      node.className = 'handoff-node';
+      if (handoff.next) {
+        node.type = 'button';
+        node.addEventListener('click', () => {
+          selectStage(handoff.next);
+          if (window.matchMedia('(max-width: 1100px)').matches) {
+            stageDetail.scrollIntoView({ block: 'start' });
+          }
+          cycleView.querySelector('[aria-pressed="true"][data-step]')?.focus({ preventScroll: true });
+        });
+      } else {
+        node.href = '#map/' + handoff.map;
+      }
+      const condition = document.createElement('span');
+      condition.className = 'handoff-condition';
+      condition.textContent = handoff.condition;
+      const owner = document.createElement('strong');
+      owner.textContent = handoff.owner + (handoff.next ? ' →' : ' ↗');
+      const record = document.createElement('span');
+      record.className = 'handoff-record';
+      record.textContent = handoff.record;
+      node.append(condition, owner, record);
+      item.append(node);
+      handoffTree.append(item);
+    }
+  }
+
+  let linkedNode = null;
+  let selectedStage = 'control';
+
+  function selectStage(key) {
+    selectedStage = key;
+    const connection = stageModules[key];
+    const detail = details[key];
+    const selectedButton = Array.from(cycleStages).find(button => button.dataset.step === key);
+    for (const button of cycleStages) button.setAttribute('aria-pressed', String(button === selectedButton));
+    cycleView.toggleAttribute('data-focused', Boolean(connection));
+    clearStage.hidden = !connection;
+    if (connection) {
+      const accent = getComputedStyle(selectedButton).getPropertyValue('--stage-ink').trim();
+      cycleView.style.setProperty('--module-accent', accent || '#14675c');
+    }
+    for (const spoke of cycleSpokes) spoke.classList.toggle('is-active', spoke.dataset.spoke === key);
+    for (const field of detailFields) document.getElementById('detail-' + field).textContent = detail[field];
+    renderConnections(key);
+    moduleSection.hidden = !connection;
+    moduleTree.replaceChildren();
+    if (!connection) return;
+
+    mapReference.href = '#map/' + connection.target;
+    for (const nodeId of connection.nodes) {
+      const node = nodes.get(nodeId);
+      const item = document.createElement('li');
+      const card = document.createElement('article');
+      card.className = 'module-card';
+      const title = document.createElement('strong');
+      title.textContent = node.card.querySelector('.card-title').textContent;
+      const description = document.createElement('p');
+      description.textContent = node.card.querySelector('.detail').textContent;
+      card.append(title, description);
+      item.append(card);
+      moduleTree.append(item);
+    }
+  }
+
+  for (const stage of cycleStages) {
+    stage.addEventListener('click', () => {
+      const key = stage.dataset.step;
+      selectStage(key === selectedStage ? 'control' : key);
+      if (selectedStage !== 'control' && window.matchMedia('(max-width: 620px)').matches) {
+        stageDetail.scrollIntoView({ block: 'start' });
+      }
+    });
+  }
+
+  clearStage.addEventListener('click', () => {
+    const previous = cycleView.querySelector('[aria-pressed="true"][data-step]');
+    selectStage('control');
+    previous?.focus();
+  });
+
+  function openMapTarget(id) {
+    const node = nodes.get(id);
+    if (!node || node === root) return;
+    for (let branch = node; branch !== root; branch = branch.parent) {
+      if (branch.children.length) expanded.add(branch);
+    }
+    linkedNode = node.element;
+    linkedNode.classList.add('linked-node');
+    updateLayout();
+    focusBranch(id);
+  }
+
+  const taskView = document.getElementById('tasks-view');
+  const taskList = document.getElementById('task-list');
+  const taskStatus = document.getElementById('task-status');
+  const taskVersion = document.getElementById('task-version');
+  const newTask = document.getElementById('new-task');
+  let currentTaskRequest;
+
+  async function refreshTasks() {
+    currentTaskRequest?.abort();
+    const request = new AbortController();
+    currentTaskRequest = request;
+    if (location.protocol === 'file:') {
+      taskStatus.textContent = 'GitHub тапсырмалары сайттың жарияланған нұсқасында көрсетіледі.';
+      return;
+    }
+
+    taskStatus.textContent = 'GitHub тапсырмалары жүктелуде…';
+    try {
+      const response = await fetch('alasu-tasks.json', { cache: 'no-cache', signal: request.signal });
+      if (!response.ok) throw new Error('Task list is unavailable');
+      const snapshot = await response.json();
+      if (!/^[A-Za-z0-9-]+\/[A-Za-z0-9_.-]+$/.test(snapshot.repository) ||
+          !Array.isArray(snapshot.tasks)) throw new Error('Task list is invalid');
+      const repo = 'https://github.com/' + snapshot.repository;
+      newTask.href = repo + '/issues/new';
+      newTask.hidden = false;
+      const tasks = snapshot.tasks.filter(task => Number.isSafeInteger(task.number) && task.number > 0 &&
+        typeof task.title === 'string' && ['open', 'closed'].includes(task.state));
+      tasks.sort((a, b) => Number(a.state === 'closed') - Number(b.state === 'closed') || b.number - a.number);
+      taskList.replaceChildren(...tasks.map(task => {
+        const item = document.createElement('li');
+        const link = document.createElement('a');
+        const state = document.createElement('span');
+        link.href = repo + '/issues/' + task.number;
+        link.textContent = '#' + task.number + ' ' + task.title;
+        state.className = 'task-state';
+        state.dataset.state = task.state;
+        state.textContent = task.state === 'open' ? 'Ашық' : 'Жабық';
+        item.append(link, state);
+        return item;
+      }));
+      taskList.hidden = tasks.length === 0;
+      taskStatus.textContent = tasks.length ? '' : 'GitHub-та әзірге тапсырма жоқ.';
+      const revision = /^[a-f0-9]{40}$/.test(snapshot.revision) ? snapshot.revision.slice(0, 7) : '';
+      taskVersion.hidden = !revision;
+      taskVersion.textContent = revision ? 'Жарияланған нұсқа · ' + revision : '';
+    } catch (error) {
+      if (error.name !== 'AbortError') taskStatus.textContent = 'Тапсырмалар тізімі жүктелмеді. Бетті жаңартып көріңіз.';
+    }
+  }
+
+  window.addEventListener('focus', () => { if (!taskView.hidden) void refreshTasks(); });
+
+  function showView() {
+    const [currentView, target] = location.hash.slice(1).split('/');
+    const mode = currentView === 'cycle' || currentView === 'tasks' ? currentView : 'map';
+    document.querySelector('.app').dataset.view = mode;
+    cycleView.hidden = mode !== 'cycle';
+    taskView.hidden = mode !== 'tasks';
+    mapSidebar.hidden = mode !== 'map';
+    mapTools.hidden = mode !== 'map';
+    viewport.hidden = mode !== 'map';
+    for (const link of navLinks) {
+      if (link.dataset.viewLink === mode) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    }
+    if (mode === 'tasks') void refreshTasks();
+    if (mode !== 'map') return;
+    linkedNode?.classList.remove('linked-node');
+    linkedNode = null;
+    if (target && nodes.has(target)) openMapTarget(target);
+    else focusBranch(active);
+  }
+
+  window.addEventListener('hashchange', showView);
+  showView();
+
+
+</script>
+</body>
+</html>
