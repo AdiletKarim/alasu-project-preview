@@ -1,0 +1,57 @@
+name: Alasu project preview
+
+on:
+  push:
+    branches: [main]
+  issues:
+    types: [opened, edited, closed, reopened, deleted, transferred]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: alasu-preview-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: read
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+          persist-credentials: false
+      - name: Build project preview and task list
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir _site
+          cp docs/alasu-joba-kartasy-kk.html _site/index.html
+          cp docs/alasu-joba-kartasy-kk.html docs/alasu-joba-kartasy-kk.drawio docs/alasu-zhumys-ainalymy-kk.html _site/
+          gh api --paginate "repos/$GITHUB_REPOSITORY/issues?state=all&per_page=100" \
+            --jq '.[] | select(has("pull_request") | not) | {number, title, state}' \
+            | jq -s --arg repository "$GITHUB_REPOSITORY" --arg revision "$(git rev-parse HEAD)" \
+              '{repository: $repository, revision: $revision, tasks: .}' > _site/alasu-tasks.json
+      - name: Upload public Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.site.outputs.page_url }}
+    steps:
+      - name: Deploy the project preview
+        uses: actions/deploy-pages@v4
+        id: site
