@@ -33,6 +33,8 @@ jobs:
           mkdir _site
           cp docs/alasu-joba-kartasy-kk.html _site/index.html
           cp docs/alasu-joba-kartasy-kk.html docs/alasu-joba-kartasy-kk.drawio docs/alasu-zhumys-ainalymy-kk.html _site/
+          cp screenshots.html _site/
+          cp -R iphone-screenshots-1.0.0 android-screenshots-1.0.0 _site/
           gh api --paginate "repos/$GITHUB_REPOSITORY/issues?state=all&per_page=100" \
             --jq '.[] | select(has("pull_request") | not) | {number, title, state}' \
             | jq -s --arg repository "$GITHUB_REPOSITORY" --arg revision "$(git rev-parse HEAD)" \
